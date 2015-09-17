@@ -1,0 +1,9 @@
+{% if server_list %}
+    <ul>
+    {% for server in server_list %}
+        <li><a href="/dashboard/{{ server.id }}/">Server Name: {{ server.server_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No servers are available.</p>
+{% endif %}
