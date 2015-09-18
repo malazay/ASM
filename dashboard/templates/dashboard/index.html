@@ -1,3 +1,8 @@
+{% load staticfiles %}
+<div class="header-cont">
+    <div></div>
+</div>
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/style.css' %}" />
 {% if server_list %}
     <ul>
     {% for server in server_list %}
