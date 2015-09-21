@@ -24,4 +24,4 @@ def server_status(request, server_id):
     #if request.GET.get('startsrv'):
     start_appium_server(server.ip_address, server.port_number, server.chromedriver_port, server.bootstrap_port,
                         server.selendroid_port, "--no-reset --local-timezone")
-    return HttpResponse("Here is where you would be seeing the Appium Logs")
+    return render(request, 'dashboard/status.html', {'server': server})

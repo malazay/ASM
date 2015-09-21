@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+from ASM.appium import manager
+
 
 class Server(models.Model):
     server_name = models.CharField(max_length=50, default="Server Name")
@@ -15,7 +17,7 @@ class Server(models.Model):
         return self.server_name
 
     def isActive(self):
-        return self.server_status
+        return manager.check_server_status(self.ip_address, self.port_number)
     isActive.admin_order_field = 'server_status'
     isActive.boolean = True
     isActive.short_description = "Server Status"

@@ -1,0 +1,12 @@
+<h1>{{ server.server_name }}</h1>
+<ul>
+    <li>IP Address: {{ server.ip_address }}</li>
+    <li>Port Number: {{ server.port_number }}</li>
+    <li>Chromedriver Port: {{ server.chromedriver_port }}</li>
+    <li>Bootstrap Port: {{ server.bootstrap_port  }}</li>
+    <li>Selendroid Port: {{ server.selendroid_port }}</li>
+    <li>Creation Date: {{ server.creation_date }}</li>
+    <li>Active: {{ server.server_status }}</li>
+</ul>
+<a href="{% url 'status' server.id %}">Start Server</a>
+
