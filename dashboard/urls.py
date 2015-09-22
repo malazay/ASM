@@ -8,5 +8,6 @@ urlpatterns = [
     # ex: /dashboard/5/
     url(r'^(?P<server_id>[0-9]+)/$', views.detail, name='detail'),
     url(r'^(?P<server_id>[0-9]+)/status/$', views.server_status, name='status'),
+    url(r'^(?P<server_id>[0-9]+)/stop/$', views.stop_server, name='stop'),
 ]
 

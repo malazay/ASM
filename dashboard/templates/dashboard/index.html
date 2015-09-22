@@ -3,12 +3,24 @@
     <div></div>
 </div>
 <link rel="stylesheet" type="text/css" href="{% static 'dashboard/style.css' %}" />
+<div class="row">
 {% if server_list %}
     <ul>
     {% for server in server_list %}
+        {% if server.isActive %}
+        <div class="portContainer active">
+            {{ server.port_number }}
+        </div>
+        {% else %}
+        <div class="portContainer">
+            {{ server.port_number }}
+        </div>
+        {% endif %}
         <li><a href="/dashboard/{{ server.id }}/">Server Name: {{ server.server_name }}</a></li>
+        <p>Status: {{ server.isActive }}</p>
     {% endfor %}
     </ul>
 {% else %}
     <p>No servers are available.</p>
 {% endif %}
+    </div>

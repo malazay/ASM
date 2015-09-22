@@ -1,27 +1,27 @@
-body{
-    margin:0px;
-    background:#000;
-}
-.header-cont {
-    width:100%;
-    position:fixed;
-    top:0px;
-}
-.header {
-    height:50px;
-    background:#F0F0F0;
-    border:1px solid #CCC;
-    width:960px;
-    margin:0px auto;
-}
-.content {
-    width:960px;
-    background: #F0F0F0;
-    border: 1px solid #CCC;
-    height: 2000px;
-    margin: 70px auto;
+.portContainer {
+    border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	background-color: red;
+	font-size: 30px;
+	color: white;
+	line-height: 150px;
+	text-align:center;
 }
 
-li a {
-    color: green;
+.portContainer.active {
+    background-color: green;
+    color: white;
 }
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+ul {
+    float:left;
+    margin-left: 2px;
+    padding: 5px;
+}
+
