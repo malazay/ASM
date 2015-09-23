@@ -1,5 +1,5 @@
 __author__ = 'malazay'
-from django.conf.urls import url
+from django.conf.urls import url, include
 
 from . import views
 

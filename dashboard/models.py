@@ -21,3 +21,8 @@ class Server(models.Model):
     isActive.admin_order_field = 'server_status'
     isActive.boolean = True
     isActive.short_description = "Server Status"
+
+        
+
+
+

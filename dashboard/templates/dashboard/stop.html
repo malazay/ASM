@@ -7,7 +7,10 @@
     <li>Bootstrap Port: {{ server.bootstrap_port  }}</li>
     <li>Selendroid Port: {{ server.selendroid_port }}</li>
     <li>Creation Date: {{ server.creation_date }}</li>
-    <li>Active: {{ server.server_status }}</li>
 </ul>
-<a href="{% url 'status' server.id %}">Start Server</a>
+{% if server.isActive %}
+    <a href="{% url 'stop' server.id %}">Stop Server</a>
+{% else %}
+    <a href="{% url 'status' server.id %}">Start Server</a>
+{% endif %}
 

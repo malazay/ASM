@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Server
 
+
 class ServerAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Server Name', {'fields': ['server_name']}),
@@ -15,5 +16,6 @@ class ServerAdmin(admin.ModelAdmin):
                     'selendroid_port', 'creation_date', 'isActive')
     list_filter = ['server_name', 'ip_address', 'port_number', 'server_status']
     search_fields = ['server_name', 'ip_address', 'port_number', 'server_status']
+
 
 admin.site.register(Server, ServerAdmin)

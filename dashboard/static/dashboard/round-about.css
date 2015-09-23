@@ -1,0 +1,32 @@
+/*!
+ * Start Bootstrap - Round About HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.img-center {
+	margin: 0 auto;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.btn-circle {
+  	width:200px;
+    height:200px;
+    border-radius:250px;
+  	font-size:50px;
+    color:#fff;
+    line-height:200px;
+    text-align:center;
+    background:green;
+}
+
+.not-running {
+	background:red;
+}

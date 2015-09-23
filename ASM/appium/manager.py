@@ -63,14 +63,17 @@ def stop_appium_server(port):
 
 def check_server_status(ip, port):
     url = "http://"+ip+":"+port+"/wd/hub/status/"
-    print("Checking status of server: " + url)
-    try:
-        server = urllib2.urlopen(url)
-        data = json.load(server)
-        status = True
-    except:
+    if get_node_pid_by_port(port) is not None:
+        print("Checking status of server: " + url)
+        try:
+            server = urllib2.urlopen(url)
+            data = json.load(server)
+            status = True
+        except:
+            status = False
+        print ("Server Running: " + str(status))
+    else:
         status = False
-    print ("Server Running: " + str(status))
     return status
 
 
