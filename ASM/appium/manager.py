@@ -18,7 +18,7 @@ def postpone(function):
   return decorator
 
 
-def set_appium_server(ip,port,chromedriver,bootstrap, selendroid, params):
+def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, params):
     if params is None:
         params = ""
     return "appium --address " + ip + " -p " + port + " --chromedriver-port " + chromedriver + " --bootstrap-port " + \
