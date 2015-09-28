@@ -4,6 +4,10 @@ import urllib2
 import json
 import psutil
 import time
+import sys
+import subprocess
+import shlex
+
 from threading import Thread
 
 
@@ -11,11 +15,39 @@ pid = None
 
 
 def postpone(function):
-  def decorator(*args, **kwargs):
-    t = Thread(target = function, args=args, kwargs=kwargs)
-    t.daemon = True
-    t.start()
-  return decorator
+    def decorator(*args, **kwargs):
+        t = Thread(target = function, args=args, kwargs=kwargs)
+        t.daemon = True
+        t.start()
+    return decorator
+
+
+def run_command(command):
+    logfile = open('logfile', 'w')
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+    while True:
+        output = process.stdout.readline()
+        if output == '' and process.poll() is not None:
+            break
+        if output:
+            print(output.strip())
+    rc = process.poll()
+    return rc
+
+def log_to_file(command):
+    logfile = open('logfile', 'w')
+    proc = subprocess.Popen([command], shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    for line in proc.stdout:
+        sys.stdout.write(line)
+        logfile.write(line)
+    proc.wait()
+
+
+def run_command_and_log(command, logfile):
+    with open(logfile, 'w') as out:
+        out.write('Starting the Appium Server with parameters: ' + command + '\n')
+        out.flush()
+        print subprocess.Popen(command, shell=True, universal_newlines=True, stderr=subprocess.STDOUT, stdout=out)
 
 
 def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, params):
@@ -27,7 +59,9 @@ def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, params):
 
 @postpone
 def start_appium_server(ip,port,chromedriver,bootstrap, selendroid, params):
-    os.system(set_appium_server(ip, port, chromedriver, bootstrap, selendroid, params))
+    ###os.system(set_appium_server(ip, port, chromedriver, bootstrap, selendroid, params))
+    command = set_appium_server(ip, port, chromedriver, bootstrap, selendroid, params)
+    run_command(command)
 
 
 def get_node_pid_list():
@@ -77,4 +111,5 @@ def check_server_status(ip, port):
     return status
 
 
-
+print "running appium server"
+run_command_and_log("appium", "logfile.txt")

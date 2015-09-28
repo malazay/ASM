@@ -39,3 +39,8 @@ def stop_server(request, server_id):
     except:
         print "Something that you need to fix"
     return render(request, 'dashboard/stop.html', {'server': server})
+
+
+def log_viewer(request, server_id):
+    server = get_object_or_404(Server, pk=server_id)
+    return render(request, 'dashboard/log_viewer.html', {'server': server})
