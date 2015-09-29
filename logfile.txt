@@ -1,0 +1,5 @@
+Starting the Appium Server with parameters: appium
+[31merror[39m: Couldn't start Appium REST http interface listener. Requested port is already in use. Please make sure there's no other instance of Appium running a[36minfo[39m: Console LogLevel: debug
+[36minfo[39m: [37m-->[39m [37mGET[39m [37m/wd/hub/status/[39m [90m{}[39m
+[36minfo[39m: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+[36minfo[39m: [37m<-- GET /wd/hub/status/ [39m[32m200[39m[90m 10.257 ms - 105[39m [90m{"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}[39m
