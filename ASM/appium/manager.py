@@ -6,7 +6,7 @@ import psutil
 import time
 import sys
 import subprocess
-import shlex
+
 
 from threading import Thread
 
@@ -112,4 +112,4 @@ def check_server_status(ip, port):
 
 
 print "running appium server"
-run_command_and_log("appium", "logfile.txt")
+#run_command_and_log("appium", "logfile.txt")

@@ -1,146 +1,27 @@
-.portContainer {
-    border-radius: 50%;
-	width: 150px;
-	height: 150px;
-	background-color: red;
-	font-size: 30px;
-	line-height: 150px;
-	color: white;
-	text-align:center;
-	border-top: 1px solid #FF3C26;
-    border-left: 1px solid #FF3E30;
-    border-right: 1px solid #FF5340;
-    border-bottom: 1px solid #FF4621;
-}
-
-.portContainer.active {
-    background-color: #0ACA57;
-    color: white;
-    border-top: 1px solid #7BFF08;
-    border-left: 2px solid #55FF17;
-    border-right: 1px solid #4BFF1F;
-    border-bottom: 2px solid #98FF4A;
-}
-
-.row {
-    position: relative;
-    margin-left: -15px;
-    margin-right: -15px;
-}
-
-ul {
-    float:left;
-    margin-left: 2px;
-    padding: 5px;
-}
-
-.serverButton {
-   border-top: 1px solid #208717;
-   background: #41c484;
-   background: -webkit-gradient(linear, left top, left bottom, from(#35b52a), to(#41c484));
-   background: -webkit-linear-gradient(top, #35b52a, #41c484);
-   background: -moz-linear-gradient(top, #35b52a, #41c484);
-   background: -ms-linear-gradient(top, #35b52a, #41c484);
-   background: -o-linear-gradient(top, #35b52a, #41c484);
-   padding: 5px 10px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: white;
-   font-size: 14px;
-   font-family: Georgia, serif;
-   text-decoration: none;
-   vertical-align: middle;
-   cursor:pointer;
-   width:25%
-   }
-
-.serverButton:hover {
-   border-top-color: #1c5e0f;
-   background: #1c5e0f;
-   color: #ccc;
-   }
-.serverButton:active {
-   border-top-color: #257d41;
-   background: #257d41;
-   }
-
-.serverButton a:link {
-    text-decoration: none;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-    color: white;
-    font-size: 14px;
-    font-family: Georgia, serif;
-    text-decoration: none;
-}
-
-.serverButton a:visited {
-    text-decoration: none;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-    color: white;
-    font-size: 14px;
-    font-family: Georgia, serif;
-    text-decoration: none;
-}
-
-.serverButton a:hover {
-    text-decoration: underline;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-    color: #ccc;
-    font-size: 14px;
-    font-family: Georgia, serif;
-    text-decoration: none;
-}
-
-.serverButton a:active {
-    text-decoration: underline;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-    color: white;
-    font-size: 14px;
-    font-family: Georgia, serif;
-    text-decoration: none;
-}
-
-.portContainer a:link {
-    text-decoration: none;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-    col or: white;
-    font-size: 30px;
-    font-family: Georgia, serif;
-    text-decoration: none;
-}
-
-.portContainer a:visited {
-    text-decoration: none;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-    color: white;
-    font-size: 30px;
-    font-family: Georgia, serif;
-    text-decoration: none;
-}
-
-.portContainer a:hover {
-    text-decoration: underline;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-    color: #ccc;
-    font-size: 30px;
-    font-family: Georgia, serif;
-    text-decoration: none;
-}
-
-.portContainer a:active {
-    text-decoration: underline;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-    color: white;
-    font-size: 30px;
-    font-family: Georgia, serif;
-    text-decoration: none;
-}
-
 .navbar {
-    position:relative
+    width:100%;
+    background-color:black;
+}
+
+.navbar a{
+    color:white;
+
+}
+
+.serverButton{
+  width:10%
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
 }

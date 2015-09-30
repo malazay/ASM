@@ -6,7 +6,7 @@
         <div class="portContainer active">
             <a href="/dashboard/{{ server.id }}/">{{ server.port_number }}</a>
         </div>
-        <div class="serverButton">
+        <div class="serverButton start">
             <a href="{% url 'stop' server.id %}">Stop Server</a>
         </div>
         {% else %}
@@ -15,12 +15,13 @@
                 <a href="/dashboard/{{ server.id }}/">{{ server.port_number }}</a>
             </div>
         </div>
-        <div class="serverButton">
+        <h2></h2>
+        <div class="serverButton stop">
             <a href="{% url 'status' server.id %}">Start Server</a>
         </div>
         {% endif %}
         <div class="serverName">
-            <li><a href="/dashboard/{{ server.id }}/">Server Name: {{ server.server_name }}</a></li>
+            <a href="/dashboard/{{ server.id }}/">Server Name: {{ server.server_name }}</a>
         </div>
     </div>
     {% endfor %}
