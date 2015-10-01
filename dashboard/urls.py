@@ -7,7 +7,8 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     # ex: /dashboard/5/
     url(r'^(?P<server_id>[0-9]+)/$', views.detail, name='detail'),
-    url(r'^(?P<server_id>[0-9]+)/status/$', views.server_status, name='status'),
     url(r'^(?P<server_id>[0-9]+)/stop/$', views.stop_server, name='stop'),
+    url(r'^(?P<server_id>[0-9]+)/run/$', views.run_server, name='run'),
+    url(r'^(?P<server_id>[0-9]+)/logs/$', views.log_viewer, name='logs'),
 ]
 

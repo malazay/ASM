@@ -34,6 +34,7 @@ def run_command(command):
     rc = process.poll()
     return rc
 
+
 def log_to_file(command):
     logfile = open('logfile', 'w')
     proc = subprocess.Popen([command], shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -44,25 +45,33 @@ def log_to_file(command):
 
 
 def run_command_and_log(command, logfile):
-    with open(logfile, 'w') as out:
+    with open(os.getcwd() + "/ASM/logs/" + logfile, 'w') as out:
         out.write('Starting the Appium Server with parameters: ' + command + '\n')
         out.flush()
         print subprocess.Popen(command, shell=True, universal_newlines=True, stderr=subprocess.STDOUT, stdout=out)
 
 
-def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, params):
+def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, override, params):
     if params is None:
         params = ""
+    if reset is "full":
+        params += " --full-reset"
+    elif reset is "no":
+        params += " --no-reset"
+    else:
+        params += ""
+    if override is True:
+        params += " --session-override"
     return "appium --address " + ip + " -p " + port + " --chromedriver-port " + chromedriver + " --bootstrap-port " + \
            bootstrap + " --selendroid-port " + selendroid + " " + params
 
 
 @postpone
-def start_appium_server(ip,port,chromedriver,bootstrap, selendroid, params):
-    ###os.system(set_appium_server(ip, port, chromedriver, bootstrap, selendroid, params))
-    command = set_appium_server(ip, port, chromedriver, bootstrap, selendroid, params)
-    run_command(command)
-
+def start_appium_server(ip,port,chromedriver,bootstrap, selendroid, reset, override, params, logfile):
+    command = set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, override, params)
+    print command
+    #run_command(command)
+    run_command_and_log(command, logfile)
 
 def get_node_pid_list():
     return [item.split()[1] for item in os.popen('tasklist').read().splitlines()[4:] if 'node.exe' in item.split()]
@@ -79,7 +88,8 @@ def get_node_pid_by_port(port):
                 print 'Process Node with port ' + port + ' PID is: ' + str(item)
                 node_pid = item
                 break
-        except:
+        except Exception as e:
+            print e
             print('Server not running')
     if node_pid is None:
         print "Server with port: " + str(port) + " is not running"
@@ -111,5 +121,9 @@ def check_server_status(ip, port):
     return status
 
 
-print "running appium server"
-#run_command_and_log("appium", "logfile.txt")
+def adb():
+    devices = []
+    proc = subprocess.Popen('adb devices', shell=True, stdout=subprocess.PIPE)
+    for line in iter(proc.stdout.readline,''):
+        devices.append(line)
+    return devices
