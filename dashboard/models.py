@@ -22,9 +22,12 @@ class Server(models.Model):
     def __str__(self):
         return self.server_name
 
-
     def isActive(self):
         return manager.check_server_status(self.ip_address, self.port_number)
     isActive.admin_order_field = 'server_status'
     isActive.boolean = True
     isActive.short_description = "Server Status"
+
+    def read_log(self, server_id):
+        log = open(os.path.join(PROJECT_ROOT+"/logs/", server_id + ".txt"))
+        return log.read()

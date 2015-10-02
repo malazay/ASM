@@ -1,29 +1,22 @@
 <!DOCTYPE html>
+{% include "dashboard/base_generic.html" %}
+{% load static %}
 <html>
-<body>
-
-<p id="demo">Let AJAX change this text.</p>
-
-<button type="button"
-onclick="loadDoc('/asm/logs/7.txt', myFunction)">Change Content
-</button>
-
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
-function loadDoc(url, cfunc) {
-  var xhttp;
-  xhttp=new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-      cfunc(xhttp);
-    }
-  }
-  xhttp.open("GET", url, true);
-  xhttp.send();
-}
-function myFunction(xhttp) {
-  document.getElementById("demo").innerHTML = xhttp.responseText;
-}
+$.ajaxSetup({
+    cache: false
+});
+$(document).ready(function(){
+setInterval(function(){
+$("#log").load("/static/logs/" + {{ server.id }} + ".txt")
+}, 5000);
+});
 </script>
-
+</head>
+<body>
+<h1>{{ server.server_name }}</h1>
+<div id="log"></div>
 </body>
 </html>

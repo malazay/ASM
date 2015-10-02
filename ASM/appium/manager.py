@@ -23,16 +23,7 @@ def postpone(function):
 
 
 def run_command(command):
-    logfile = open('logfile', 'w')
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
-    while True:
-        output = process.stdout.readline()
-        if output == '' and process.poll() is not None:
-            break
-        if output:
-            print(output.strip())
-    rc = process.poll()
-    return rc
 
 
 def log_to_file(command):
@@ -45,13 +36,13 @@ def log_to_file(command):
 
 
 def run_command_and_log(command, logfile):
-    with open(os.getcwd() + "/ASM/logs/" + logfile, 'w') as out:
+    with open(os.getcwd() + "/dashboard/static/logs/" + logfile, 'w') as out:
         out.write('Starting the Appium Server with parameters: ' + command + '\n')
         out.flush()
         print subprocess.Popen(command, shell=True, universal_newlines=True, stderr=subprocess.STDOUT, stdout=out)
 
 
-def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, override, params):
+def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile):
     if params is None:
         params = ""
     if reset is "full":
@@ -63,15 +54,17 @@ def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, over
     if override is True:
         params += " --session-override"
     return "appium --address " + ip + " -p " + port + " --chromedriver-port " + chromedriver + " --bootstrap-port " + \
-           bootstrap + " --selendroid-port " + selendroid + " " + params
+           bootstrap + " --selendroid-port " + selendroid + " " + params + " --log " + os.getcwd() + \
+           "\\dashboard\\static\\logs\\" + logfile + " --log-no-colors"
 
 
 @postpone
 def start_appium_server(ip,port,chromedriver,bootstrap, selendroid, reset, override, params, logfile):
-    command = set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, override, params)
+    command = set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile)
     print command
     #run_command(command)
-    run_command_and_log(command, logfile)
+    #run_command_and_log(command, logfile)
+    os.system(command)
 
 def get_node_pid_list():
     return [item.split()[1] for item in os.popen('tasklist').read().splitlines()[4:] if 'node.exe' in item.split()]

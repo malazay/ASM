@@ -50,12 +50,3 @@ def run_server(request, server_id):
     time.sleep(5)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-
-def log_viewer(request, server_id):
-    log = open(os.path.join(PROJECT_ROOT+"/logs/", server_id + ".txt"))
-    #response = HttpResponse(log.read())
-    #response['Content-Disposition'] = 'inline;filename=some_file.txt'
-    #return response
-    #return render_to_response(({'log': log.read()}))
-
-
