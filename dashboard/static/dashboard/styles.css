@@ -98,3 +98,7 @@ a.serverCircle {
    color: white;
    text-decoration: none;
 }
+
+#log {
+  white-space: pre-line;
+}
