@@ -1,20 +1,126 @@
-2015-10-02 13:40:06:344 - info: Welcome to Appium v1.4.10 (REV c97e824665ae82df682a0b540b38dfe8c13c8ac7)
-2015-10-02 13:40:06:346 - info: Appium REST http interface listener started on 127.0.0.1:4723
-2015-10-02 13:40:06:349 - info: [debug] Non-default server args: {"address":"127.0.0.1","bootstrapPort":4725,"sessionOverride":true,"fullReset":true,"log":"C:\\Users\\alexis1\\PycharmProjects\\ASM\\dashboard\\static\\logs\\6.txt","localTimezone":true,"selendroidPort":8082,"chromeDriverPort":9516}
-2015-10-02 13:40:06:350 - info: Console LogLevel: debug
-2015-10-02 13:40:06:350 - info: File LogLevel: debug
-2015-10-02 13:40:08:950 - info: --> GET /wd/hub/status/ {}
-2015-10-02 13:40:08:952 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-02 13:40:08:957 - info: <-- GET /wd/hub/status/ 200 7.323 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-02 13:40:10:905 - info: --> GET /wd/hub/status/ {}
-2015-10-02 13:40:10:905 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-02 13:40:10:907 - info: <-- GET /wd/hub/status/ 200 2.798 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-02 13:40:11:057 - info: --> GET /wd/hub/status/ {}
-2015-10-02 13:40:11:057 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-02 13:40:11:058 - info: <-- GET /wd/hub/status/ 200 1.143 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-02 13:45:27:710 - info: --> GET /wd/hub/status/ {}
-2015-10-02 13:45:27:711 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-02 13:45:27:711 - info: <-- GET /wd/hub/status/ 200 1.423 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-02 13:45:35:074 - info: --> GET /wd/hub/status/ {}
-2015-10-02 13:45:35:074 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-02 13:45:35:075 - info: <-- GET /wd/hub/status/ 200 1.318 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:00:59:537 - info: Welcome to Appium v1.4.10 (REV c97e824665ae82df682a0b540b38dfe8c13c8ac7)
+2015-10-04 22:00:59:540 - info: Appium REST http interface listener started on 127.0.0.1:4723
+2015-10-04 22:00:59:542 - info: [debug] Non-default server args: {"address":"127.0.0.1","bootstrapPort":4725,"sessionOverride":true,"fullReset":true,"log":"F:\\ASM\\dashboard\\static\\logs\\6.txt","localTimezone":true,"logNoColors":true,"selendroidPort":8082,"chromeDriverPort":9516}
+2015-10-04 22:00:59:543 - info: Console LogLevel: debug
+2015-10-04 22:00:59:543 - info: File LogLevel: debug
+2015-10-04 22:01:01:543 - info: --> GET /wd/hub/status/ {}
+2015-10-04 22:01:01:545 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:01:01:550 - info: <-- GET /wd/hub/status/ 200 7.287 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:01:04:954 - info: --> GET /wd/hub/status/ {}
+2015-10-04 22:01:04:955 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:01:04:957 - info: <-- GET /wd/hub/status/ 200 2.496 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:01:05:201 - info: --> GET /wd/hub/status/ {}
+2015-10-04 22:01:05:202 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:01:05:202 - info: <-- GET /wd/hub/status/ 200 0.926 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:02:38:235 - info: --> POST /wd/hub/session {"desiredCapabilities":{"browserName":"Browser","platformName":"Android","deviceName":"192.168.56.101:5555","version":"4.4","platform":"ANDROID"}}
+2015-10-04 22:02:38:235 - info: Client User-Agent string: Apache-HttpClient/4.3.3 (java 1.5)
+2015-10-04 22:02:38:237 - info: [debug] The following desired capabilities were provided, but not recognized by appium. They will be passed on to any other services running on this server. : version, platform
+2015-10-04 22:02:38:238 - info: Set mode: Proxying straight through to Chromedriver
+2015-10-04 22:02:38:238 - info: [debug] Looks like we want chrome on android
+2015-10-04 22:02:38:239 - info: [debug] Creating new appium session 544a21cd-9226-401e-aa8b-164585ccc059
+2015-10-04 22:02:38:240 - info: [debug] Checking whether adb is present
+2015-10-04 22:02:38:242 - info: [debug] Using adb from F:\Android\sdk\platform-tools\adb.exe
+2015-10-04 22:02:38:242 - info: [debug] Using fast reset? false
+2015-10-04 22:02:38:242 - info: [debug] Preparing device for session
+2015-10-04 22:02:38:242 - info: [debug] Not checking whether app is present since we are assuming it's already on the device
+2015-10-04 22:02:38:243 - info: Retrieving device
+2015-10-04 22:02:38:243 - info: [debug] Trying to find a connected android device
+2015-10-04 22:02:38:243 - info: [debug] Getting connected devices...
+2015-10-04 22:02:38:250 - info: [debug] executing cmd: F:\Android\sdk\platform-tools\adb.exe devices
+2015-10-04 22:02:38:442 - info: [debug] 1 device(s) connected
+2015-10-04 22:02:38:443 - info: Found device 192.168.56.101:5555
+2015-10-04 22:02:38:443 - info: [debug] Setting device id to 192.168.56.101:5555
+2015-10-04 22:02:38:443 - info: [debug] Waiting for device to be ready and to respond to shell commands (timeout = 5)
+2015-10-04 22:02:38:444 - info: [debug] executing cmd: F:\Android\sdk\platform-tools\adb.exe -s 192.168.56.101:5555 wait-for-device
+2015-10-04 22:02:38:636 - info: [debug] executing cmd: F:\Android\sdk\platform-tools\adb.exe -s 192.168.56.101:5555 shell "echo 'ready'"
+2015-10-04 22:02:38:828 - info: [debug] Starting logcat capture
+2015-10-04 22:02:38:936 - info: [debug] Pushing unlock helper app to device...
+2015-10-04 22:02:38:937 - info: [debug] executing cmd: F:\Android\sdk\platform-tools\adb.exe -s 192.168.56.101:5555 install "C:\Users\Alexis\AppData\Roaming\npm\node_modules\appium\build\unlock_apk\unlock_apk-debug.apk"
+2015-10-04 22:02:44:783 - info: [debug] executing cmd: F:\Android\sdk\platform-tools\adb.exe -s 192.168.56.101:5555 shell "dumpsys window"
+2015-10-04 22:02:44:983 - info: [debug] Screen already unlocked, continuing.
+2015-10-04 22:02:44:983 - info: [debug] Forwarding system:4725 to device:4724
+2015-10-04 22:02:44:983 - info: [debug] executing cmd: F:\Android\sdk\platform-tools\adb.exe -s 192.168.56.101:5555 forward tcp:4725 tcp:4724
+2015-10-04 22:02:45:175 - info: [debug] Pushing appium bootstrap to device...
+2015-10-04 22:02:45:176 - info: [debug] executing cmd: F:\Android\sdk\platform-tools\adb.exe -s 192.168.56.101:5555 push "C:\\Users\\Alexis\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\android_bootstrap\\AppiumBootstrap.jar" /data/local/tmp/
+2015-10-04 22:02:45:373 - info: Starting App
+2015-10-04 22:02:45:374 - info: [debug] Attempting to kill all 'uiautomator' processes
+2015-10-04 22:02:45:374 - info: [debug] Getting all processes with 'uiautomator'
+2015-10-04 22:02:45:374 - info: [debug] executing cmd: F:\Android\sdk\platform-tools\adb.exe -s 192.168.56.101:5555 shell "ps 'uiautomator'"
+2015-10-04 22:02:45:571 - info: [debug] No matching processes found
+2015-10-04 22:02:45:571 - info: [debug] Running bootstrap
+2015-10-04 22:02:45:571 - info: [debug] spawning: F:\Android\sdk\platform-tools\adb.exe -s 192.168.56.101:5555 shell uiautomator runtest AppiumBootstrap.jar -c io.appium.android.bootstrap.Bootstrap -e pkg com.android.browser -e disableAndroidWatchers false
+2015-10-04 22:02:45:784 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: numtests=1
+2015-10-04 22:02:45:785 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=
+2015-10-04 22:02:45:785 - info: [debug] [UIAUTOMATOR STDOUT] io.appium.android.bootstrap.Bootstrap:
+2015-10-04 22:02:45:785 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+2015-10-04 22:02:45:785 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: test=testRunServer
+2015-10-04 22:02:45:786 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: class=io.appium.android.bootstrap.Bootstrap
+2015-10-04 22:02:45:786 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: current=1
+2015-10-04 22:02:45:786 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: 1
+2015-10-04 22:02:45:797 - info: [debug] [BOOTSTRAP] [debug] Socket opened on port 4724
+2015-10-04 22:02:45:797 - info: [debug] [BOOTSTRAP] [debug] Appium Socket Server Ready
+2015-10-04 22:02:45:797 - info: [debug] [BOOTSTRAP] [debug] Loading json...
+2015-10-04 22:02:45:798 - info: [debug] [BOOTSTRAP] [debug] Registered crash watchers.
+2015-10-04 22:02:45:799 - info: [debug] Pushing command to appium work queue: ["getDataDir",{}]
+2015-10-04 22:02:45:801 - info: [debug] [BOOTSTRAP] [debug] Client connected
+2015-10-04 22:02:45:802 - info: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"action","action":"getDataDir","params":{}}
+2015-10-04 22:02:45:803 - info: [debug] [BOOTSTRAP] [debug] Got command of type ACTION
+2015-10-04 22:02:45:803 - info: [debug] [BOOTSTRAP] [debug] Got command action: getDataDir
+2015-10-04 22:02:45:804 - info: [debug] dataDir set to: /data
+2015-10-04 22:02:45:810 - info: Chromedriver: Set chromedriver binary as: C:\Users\Alexis\AppData\Roaming\npm\node_modules\appium\node_modules\appium-chromedriver\chromedriver\win\chromedriver.exe
+2015-10-04 22:02:45:811 - info: Chromedriver: Killing any old chromedrivers, running: FOR /F "usebackq tokens=5" %a in (`netstat -nao ^| findstr /R /C:"9516 "`) do (FOR /F "usebackq" %b in (`TASKLIST /FI "PID eq %a" ^| findstr /I chromedriver.exe`) do (IF NOT %b=="" TASKKILL /F /PID %a))
+2015-10-04 22:02:45:816 - info: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":"\/data"}
+2015-10-04 22:02:46:113 - info: Chromedriver: No old chromedrivers seemed to exist
+2015-10-04 22:02:46:114 - info: Chromedriver: Spawning chromedriver with: C:\Users\Alexis\AppData\Roaming\npm\node_modules\appium\node_modules\appium-chromedriver\chromedriver\win\chromedriver.exe --url-base=wd/hub --port=9516
+2015-10-04 22:02:46:220 - info: Chromedriver: [STDOUT] Starting ChromeDriver 2.15.322448 (52179c1b310fec1797c81ea9a20326839860b7d3) on port 9516
+Only local connections are allowed.
+2015-10-04 22:02:46:222 - info: JSONWP Proxy: Proxying [GET /status] to [GET http://127.0.0.1:9516/wd/hub/status] with no body
+2015-10-04 22:02:46:235 - info: JSONWP Proxy: Got response with status 200: {"sessionId":"","status":0,"value":{"build":{"version":"alpha"},"os":{"arch":"x86_64","name":"Windows NT","version":"6.3"}}}
+2015-10-04 22:02:46:236 - info: JSONWP Proxy: Proxying [POST /session] to [POST http://127.0.0.1:9516/wd/hub/session] with body: {"desiredCapabilities":{"chromeOptions":{"androidPackage":"com.android.browser","androidActivity":"com.android.browser.BrowserActivity","androidDeviceSerial":"192.168.56.101:5555"}}}
+2015-10-04 22:03:00:558 - info: JSONWP Proxy: Got response with status 200: {"sessionId":"65c69ee004db0e6da6909341da45fe39","status":0,"value":{"acceptSslCerts":true,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"browserName":"chrome","chrome":{},"cssSelect...
+2015-10-04 22:03:00:558 - info: [debug] Overriding session id with "65c69ee004db0e6da6909341da45fe39"
+2015-10-04 22:03:00:559 - info: [debug] Device launched! Ready for commands
+2015-10-04 22:03:00:559 - info: [debug] Setting command timeout to the default of 60 secs
+2015-10-04 22:03:00:559 - info: [debug] Appium session started with sessionId 65c69ee004db0e6da6909341da45fe39
+2015-10-04 22:03:00:561 - info: <-- POST /wd/hub/session 303 22326.101 ms - 70 
+2015-10-04 22:03:00:578 - info: --> GET /wd/hub/session/65c69ee004db0e6da6909341da45fe39 {}
+2015-10-04 22:03:00:579 - info: JSONWP Proxy: Proxying [GET /wd/hub/session/65c69ee004db0e6da6909341da45fe39] to [GET http://127.0.0.1:9516/wd/hub/session/65c69ee004db0e6da6909341da45fe39] with body: {}
+2015-10-04 22:03:00:584 - info: JSONWP Proxy: Got response with status 200: {"sessionId":"65c69ee004db0e6da6909341da45fe39","status":0,"value":{"acceptSslCerts":true,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"browserName":"chrome","chrome":{},"cssSelect...
+2015-10-04 22:03:00:584 - info: JSONWP Proxy: Replacing sessionId 65c69ee004db0e6da6909341da45fe39 with 65c69ee004db0e6da6909341da45fe39
+2015-10-04 22:03:00:585 - info: <-- GET /wd/hub/session/65c69ee004db0e6da6909341da45fe39 200 8.243 ms - 494 
+2015-10-04 22:04:00:579 - info: [debug] Didn't get a new command in 60 secs, shutting down...
+2015-10-04 22:04:00:579 - info: Shutting down appium session
+2015-10-04 22:04:00:580 - info: JSONWP Proxy: Proxying [DELETE /] to [DELETE http://127.0.0.1:9516/wd/hub/session/65c69ee004db0e6da6909341da45fe39] with no body
+2015-10-04 22:04:00:934 - info: JSONWP Proxy: Got response with status 200: {"sessionId":"65c69ee004db0e6da6909341da45fe39","status":0,"value":null}
+2015-10-04 22:04:00:941 - info: [debug] [BOOTSTRAP] [debug] Got data from client: {"cmd":"shutdown"}
+2015-10-04 22:04:00:941 - info: [debug] [BOOTSTRAP] [debug] Got command of type SHUTDOWN
+2015-10-04 22:04:00:941 - info: [debug] [BOOTSTRAP] [debug] Returning result: {"status":0,"value":"OK, shutting down"}
+2015-10-04 22:04:00:941 - info: [debug] [BOOTSTRAP] [debug] Closed client connection
+2015-10-04 22:04:00:941 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: numtests=1
+2015-10-04 22:04:00:941 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=.
+2015-10-04 22:04:00:941 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: id=UiAutomatorTestRunner
+2015-10-04 22:04:00:942 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: test=testRunServer
+2015-10-04 22:04:00:942 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: class=io.appium.android.bootstrap.Bootstrap
+2015-10-04 22:04:00:942 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: current=1
+2015-10-04 22:04:00:942 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: 0
+2015-10-04 22:04:00:942 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS: stream=
+2015-10-04 22:04:00:942 - info: [debug] [UIAUTOMATOR STDOUT] Test results for WatcherResultPrinter=.
+2015-10-04 22:04:00:943 - info: [debug] [UIAUTOMATOR STDOUT] Time: 75.163
+2015-10-04 22:04:00:943 - info: [debug] [UIAUTOMATOR STDOUT] OK (1 test)
+2015-10-04 22:04:00:943 - info: [debug] [UIAUTOMATOR STDOUT] INSTRUMENTATION_STATUS_CODE: -1
+2015-10-04 22:04:00:943 - info: [debug] Sent shutdown command, waiting for UiAutomator to stop...
+2015-10-04 22:04:00:948 - info: [debug] UiAutomator shut down normally
+2015-10-04 22:04:00:949 - info: [debug] executing cmd: F:\Android\sdk\platform-tools\adb.exe -s 192.168.56.101:5555 shell "am force-stop com.android.browser"
+2015-10-04 22:04:01:452 - info: [debug] Stopping logcat capture
+2015-10-04 22:04:01:454 - info: [debug] Logcat terminated with code null, signal SIGTERM
+2015-10-04 22:04:01:455 - info: [debug] Cleaning up appium session
+2015-10-04 22:04:01:455 - info: [debug] We shut down because no new commands came in
+2015-10-04 22:09:45:192 - info: --> GET /wd/hub/status/ {}
+2015-10-04 22:09:45:193 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:09:45:194 - info: <-- GET /wd/hub/status/ 200 1.390 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:10:01:311 - info: --> GET /wd/hub/status/ {}
+2015-10-04 22:10:01:311 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:10:01:312 - info: <-- GET /wd/hub/status/ 200 0.887 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:10:30:790 - info: --> GET /wd/hub/status/ {}
+2015-10-04 22:10:30:791 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-04 22:10:30:792 - info: <-- GET /wd/hub/status/ 200 1.405 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}

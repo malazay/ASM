@@ -1,9 +1,9 @@
 __author__ = 'Alexis1'
 import os
 import urllib2
+import socket
 import json
 import psutil
-import time
 import sys
 import subprocess
 
@@ -99,6 +99,7 @@ def stop_appium_server(port):
 
 
 def check_server_status(ip, port):
+    socket.setdefaulttimeout(10)
     url = "http://"+ip+":"+port+"/wd/hub/status/"
     if get_node_pid_by_port(port) is not None:
         print("Checking status of server: " + url)
@@ -108,6 +109,7 @@ def check_server_status(ip, port):
             status = True
         except:
             status = False
+            print "Server timed out... This means that the server is online but not working."
         print ("Server Running: " + str(status))
     else:
         status = False

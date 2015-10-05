@@ -1,12 +1,10 @@
-from django.shortcuts import render, get_object_or_404, render_to_response
-from django.template import RequestContext
+from django.shortcuts import render, get_object_or_404
 from ASM.appium.manager import start_appium_server, stop_appium_server
+from ASM.monitor.stats import get_cpu_usage
 import time
-import os
 
 # Create your views here.
-from django.http import HttpResponse, HttpResponseRedirect
-from ASM.settings import PROJECT_ROOT
+from django.http import HttpResponseRedirect
 from .models import Server
 
 
@@ -50,3 +48,9 @@ def run_server(request, server_id):
     time.sleep(5)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
+def monitor(request):
+    cpu_count = get_cpu_usage()
+    server_list = Server.objects.all()
+    context = {'server_list': server_list, 'cpu_count': cpu_count}
+    return render(request, 'dashboard/monitor.html', context)
