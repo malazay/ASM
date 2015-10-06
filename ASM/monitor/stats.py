@@ -2,6 +2,7 @@ import sys
 
 __author__ = 'Alexis1'
 import psutil
+import json
 
 UNKNOWN = -1
 OK = 0
@@ -33,3 +34,5 @@ def percore_cpu():
 def get_ram():
     mem = psutil.swap_memory()
     return mem
+
+

@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Server
 
 
+
 class ServerAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Server Name', {'fields': ['server_name']}),
@@ -16,8 +17,6 @@ class ServerAdmin(admin.ModelAdmin):
         ('Session Override', {'fields': ['session_override']}),
         ('Creation Date', {'fields': ['creation_date'], 'classes': ['collapse']})
         ]
-
-
     list_display = ('server_name', 'ip_address', 'port_number', 'chromedriver_port', 'bootstrap_port',
                     'selendroid_port', 'creation_date', 'isActive')
     list_filter = ['server_name', 'ip_address', 'port_number', 'server_status']
@@ -25,3 +24,5 @@ class ServerAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Server, ServerAdmin)
+
+

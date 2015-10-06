@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^(?P<server_id>[0-9]+)/run/$', views.run_server, name='run'),
     url(r'^(?P<server_id>[0-9]+)/logs/$', views.log_viewer, name='logs'),
     url(r'^monitor/', views.monitor, name='monitor'),
+    url(r'^ajax/', views.ajax, name='ajaxdata'),
 ]
 
