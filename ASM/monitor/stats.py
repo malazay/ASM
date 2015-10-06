@@ -12,7 +12,7 @@ CRITICAL = 2
 
 def list_of_processes():
     return [proc.name() for proc in psutil.process_iter()]
-
+    
 
 # get overall cpu use
 def total_cpu():
@@ -34,5 +34,3 @@ def percore_cpu():
 def get_ram():
     mem = psutil.swap_memory()
     return mem
-
-

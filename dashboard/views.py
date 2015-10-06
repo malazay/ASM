@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from ASM.appium.manager import start_appium_server, stop_appium_server
+from ASM.appium.manager import start_appium_server, stop_appium_server, adb
 from ASM.monitor.stats import percore_cpu
 import time
 
@@ -9,7 +9,7 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from .models import Server
 import collections
 import json
-
+import re
 
 def index(request):
     server_list = Server.objects.all()
@@ -68,3 +68,20 @@ def ajax(request):
         coredata[core[0]] = core[1]
     data = coredata
     return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def adb_devices_json(request):
+    data = []
+    for device in adb():
+        if len(device) > 0:
+            data.append(re.sub('\s+', ' ', device))
+    return HttpResponse(json.dumps(data), content_type="application/json")
+
+
+def adb_devices(request):
+    data = []
+    for device in adb():
+        if len(device) > 0:
+            data.append(re.sub('\s+', ' ', device))
+    context = {'devices': data}
+    return render(request, 'dashboard/adb.html', context)

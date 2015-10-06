@@ -6,8 +6,7 @@ import json
 import psutil
 import sys
 import subprocess
-
-
+from ast import literal_eval
 from threading import Thread
 
 
@@ -119,6 +118,6 @@ def check_server_status(ip, port):
 def adb():
     devices = []
     proc = subprocess.Popen('adb devices', shell=True, stdout=subprocess.PIPE)
-    for line in iter(proc.stdout.readline,''):
-        devices.append(line)
+    for line in iter(proc.stdout.readline, ''):
+        devices.append(line.strip())
     return devices

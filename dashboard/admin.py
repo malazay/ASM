@@ -24,5 +24,3 @@ class ServerAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Server, ServerAdmin)
-
-

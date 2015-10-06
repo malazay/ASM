@@ -28,23 +28,11 @@
             Dashboard
           </h1>
           <div class="row placeholders">
-            <h1>{{ server.server_name }}</h1>
             <ul>
-                <li>IP Address: {{ server.ip_address }}</li>
-                <li>Port Number: {{ server.port_number }}</li>
-                <li>Chromedriver Port: {{ server.chromedriver_port }}</li>
-                <li>Bootstrap Port: {{ server.bootstrap_port  }}</li>
-                <li>Selendroid Port: {{ server.selendroid_port }}</li>
-                <li>Creation Date: {{ server.creation_date }}</li>
+                {% for device in devices %}
+                <li>{{ device }}</li>
+                {% endfor %}
             </ul>
-            {% if server.isActive %}
-                <h4><a class="pure-button" href="{% url 'stop' server.id %}">Stop</a></h4>
-
-            <h4><a class="pure-button" href="{% url 'logs' server.id %}">logs</a></h4>
-
-            {% else %}
-                <h4><a class="pure-button" href="{% url 'run' server.id %}">Run</a></h4>
-            {% endif %}
           </div>
       </div><!--/row-->
 	</div>
