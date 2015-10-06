@@ -102,3 +102,8 @@ a.serverCircle {
 #log {
   white-space: pre-line;
 }
+
+.legendLabel
+{
+    color:White;
+}

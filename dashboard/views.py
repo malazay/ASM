@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from ASM.appium.manager import start_appium_server, stop_appium_server
-from ASM.monitor.stats import get_cpu_usage
+from ASM.monitor.stats import percore_cpu
 import time
 
 # Create your views here.
@@ -50,7 +50,7 @@ def run_server(request, server_id):
 
 
 def monitor(request):
-    cpu_count = get_cpu_usage()
+    cpu_count = percore_cpu()
     server_list = Server.objects.all()
     context = {'server_list': server_list, 'cpu_count': cpu_count}
     return render(request, 'dashboard/monitor.html', context)
