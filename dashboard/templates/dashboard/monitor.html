@@ -4,8 +4,25 @@
 <html>
 <head>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+$.ajaxSetup ({
+        cache: false
+    });
+
+    setInterval(function(){
+        $.getJSON('/ajax/', function(data) {
+            $('#ajaxcore').empty();
+            for(var i in data) {
+                $('#ajaxcore').append("Core " + i + ": ");
+                $('#ajaxcore').append(data[i]);
+                $('#ajaxcore').append("<br />");
+            }
+        });
+    }, 1000);
+</script>
+
 </head>
 <body>
-<iframe src="http://10.1.88.196:8085/" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
+    <div id=ajaxcore>Response: </div>
 </body>
 </html>

@@ -8,12 +8,12 @@
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
                 <ul class="nav nav-sidebar">
-                  <li class="active"><a href="#">Servers List</a></li>
-                  <li><a href="#">Connected Devices</a></li>
+                  <li><a href="/dashboard/">Servers List</a></li>
+                  <li><a href="/adb/">Connected Devices</a></li>
                   <li><a href="/monitor/">Host Performance</a></li>
                   <li><a href="#">Export to CSV</a></li>
                   {% if user.is_authenticated %}
-                  <li><a href="">Manage Servers</a></li>
+                  <li><a href="/admin/dashboard/server/">Manage Servers</a></li>
                   {% endif %}
                 </ul>
                 <ul class="nav nav-sidebar">
@@ -36,6 +36,7 @@
                 <li>Bootstrap Port: {{ server.bootstrap_port  }}</li>
                 <li>Selendroid Port: {{ server.selendroid_port }}</li>
                 <li>Creation Date: {{ server.creation_date }}</li>
+                <li>UDID: {{ server.udid }}</li>
             </ul>
             {% if server.isActive %}
                 <h4><a class="pure-button" href="{% url 'stop' server.id %}">Stop</a></h4>
@@ -44,6 +45,9 @@
 
             {% else %}
                 <h4><a class="pure-button" href="{% url 'run' server.id %}">Run</a></h4>
+            {% endif %}
+              {% if server.chromedriver_open %}
+                <h4><a class="pure-button" href="{% url 'stop_chromedriver' server.id %}">Stop Chromedriver</a></h4>
             {% endif %}
           </div>
       </div><!--/row-->

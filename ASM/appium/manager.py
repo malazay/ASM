@@ -61,28 +61,39 @@ def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, over
 def start_appium_server(ip,port,chromedriver,bootstrap, selendroid, reset, override, params, logfile):
     command = set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile)
     print command
-    #run_command(command)
-    #run_command_and_log(command, logfile)
     os.system(command)
 
-def get_node_pid_list():
-    return [item.split()[1] for item in os.popen('tasklist').read().splitlines()[4:] if 'node.exe' in item.split()]
+
+def get_list_of_processes_pid(process_name):
+    return [item.split()[1] for item in os.popen('tasklist').read().splitlines()[4:] if process_name in item.split()]
 
 
-def get_node_pid_by_port(port):
-    pid_list = get_node_pid_list()
-    node_pid = None
-    for item in pid_list:
+def get_process_pid_by_port(process_name, port):
+    process_list = get_list_of_processes_pid(process_name)
+    process_pid = None
+    for item in process_list:
         try:
             p = psutil.Process(int(item))
             connections = p.connections()
             if port in str(connections):
                 print 'Process Node with port ' + port + ' PID is: ' + str(item)
-                node_pid = item
+                process_pid = item
                 break
         except Exception as e:
-            print e
-            print('Server not running')
+            print "No process with name: '" + process_name + "' and port: '" + port + "' where found" + e
+    return process_pid
+
+
+def kill_process_on_port(process_name, port):
+    pid = get_process_pid_by_port(process_name, port)
+    print "Stopping process: '" + process_name + "' on port: " + str(port)
+    p = psutil.Process(int(pid))
+    p.terminate()
+    print "process: '" + process_name + "' on port: " + str(port) + " was killed"
+
+
+def get_node_pid_by_port(port):
+    node_pid = get_process_pid_by_port("node.exe", port)
     if node_pid is None:
         print "Server with port: " + str(port) + " is not running"
     return node_pid
@@ -90,15 +101,13 @@ def get_node_pid_by_port(port):
 
 @postpone
 def stop_appium_server(port):
-    pid = get_node_pid_by_port(port)
     print "Stopping Appium Server on port: " + str(port)
-    p = psutil.Process(int(pid))
-    p.terminate()
+    kill_process_on_port("node.exe", port)
     print "Appium Server stopped"
 
 
 def check_server_status(ip, port):
-    socket.setdefaulttimeout(10)
+    #socket.setdefaulttimeout(5)
     url = "http://"+ip+":"+port+"/wd/hub/status/"
     if get_node_pid_by_port(port) is not None:
         print("Checking status of server: " + url)
@@ -121,3 +130,25 @@ def adb():
     for line in iter(proc.stdout.readline, ''):
         devices.append(line.strip())
     return devices
+
+
+def reboot(name):
+    command = "adb -s " + name + " reboot"
+    os.system(command)
+
+
+def is_chromedriver_running(port):
+    if get_process_pid_by_port("chromedriver.exe", port) is None:
+        return False
+    else:
+        return True
+
+
+def kill_chromedriver(port):
+    chromedriver_pid = get_process_pid_by_port("chromedriver.exe", port)
+    print "Stopping Chromedriver on port: " + str(port)
+    p = psutil.Process(int(chromedriver_pid))
+    p.terminate()
+    print "Chromedriver stopped"
+
+

@@ -1,0 +1,8 @@
+2015-10-07 15:13:42:825 - info: Welcome to Appium v1.4.10 (REV c97e824665ae82df682a0b540b38dfe8c13c8ac7)
+2015-10-07 15:13:42:828 - info: Appium REST http interface listener started on 127.0.0.1:8989
+2015-10-07 15:13:42:833 - info: [debug] Non-default server args: {"address":"127.0.0.1","port":8989,"bootstrapPort":9001,"sessionOverride":true,"fullReset":true,"log":"C:\\Users\\alexis1\\PycharmProjects\\ASM\\dashboard\\static\\logs\\8.txt","localTimezone":true,"logNoColors":true,"selendroidPort":9002,"chromeDriverPort":9000}
+2015-10-07 15:13:42:833 - info: Console LogLevel: debug
+2015-10-07 15:13:42:834 - info: File LogLevel: debug
+2015-10-07 15:13:45:571 - info: --> GET /wd/hub/status/ {}
+2015-10-07 15:13:45:573 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-07 15:13:45:579 - info: <-- GET /wd/hub/status/ 200 8.141 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}

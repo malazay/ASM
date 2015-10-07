@@ -107,3 +107,11 @@ a.serverCircle {
 {
     color:White;
 }
+
+ul.deviceList {
+    padding: 0;
+}
+
+ul.deviceList li {
+    list-style-type:none;
+}

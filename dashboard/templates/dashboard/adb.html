@@ -8,12 +8,12 @@
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
                 <ul class="nav nav-sidebar">
-                  <li class="active"><a href="#">Servers List</a></li>
-                  <li><a href="#">Connected Devices</a></li>
+                  <li><a href="/dashboard/">Servers List</a></li>
+                  <li class="active"><a href="/adb/">Connected Devices</a></li>
                   <li><a href="/monitor/">Host Performance</a></li>
                   <li><a href="#">Export to CSV</a></li>
                   {% if user.is_authenticated %}
-                  <li><a href="">Manage Servers</a></li>
+                  <li><a href="/admin/dashboard/server/">Manage Servers</a></li>
                   {% endif %}
                 </ul>
                 <ul class="nav nav-sidebar">
@@ -28,11 +28,16 @@
             Dashboard
           </h1>
           <div class="row placeholders">
-            <ul>
                 {% for device in devices %}
-                <li>{{ device }}</li>
-                {% endfor %}
-            </ul>
+              <ul class="deviceList">
+              {% if "device" in device.1 %}
+                <li>Device: {{ device.0 }} - Status: Connected</li>
+                {% else %}
+                <li>Device: {{ device.0 }} - Status: {{ device.1 }}</li>
+                {% endif %}
+                <li><a href="/adb_reboot/{{ device.0 }}">Reboot</a></li>
+              </ul>
+              {% endfor %}
           </div>
       </div><!--/row-->
 	</div>

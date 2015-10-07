@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from ASM.appium.manager import start_appium_server, stop_appium_server, adb
+from django.shortcuts import redirect
+from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver
 from ASM.monitor.stats import percore_cpu
 import time
 
@@ -9,7 +10,7 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 from .models import Server
 import collections
 import json
-import re
+
 
 def index(request):
     server_list = Server.objects.all()
@@ -43,11 +44,14 @@ def log_viewer(request, server_id):
 def run_server(request, server_id):
     server = get_object_or_404(Server, pk=server_id)
     server.server_status = server.isActive()
+    params = "--local-timezone"
     reset = "no"
     if server.full_reset:
         reset = "full"
+    if len(server.udid) > 0:
+        params += " -U " + server.udid
     start_appium_server(server.ip_address, server.port_number, server.chromedriver_port, server.bootstrap_port,
-                        server.selendroid_port, reset, server.session_override, "--local-timezone", server_id+".txt")
+                        server.selendroid_port, reset, server.session_override, params, server_id+".txt")
     time.sleep(5)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
@@ -72,16 +76,40 @@ def ajax(request):
 
 def adb_devices_json(request):
     data = []
-    for device in adb():
+    for device in adb()[1:]:
         if len(device) > 0:
-            data.append(re.sub('\s+', ' ', device))
+            data.append(device.split('\t'))
     return HttpResponse(json.dumps(data), content_type="application/json")
 
 
 def adb_devices(request):
     data = []
-    for device in adb():
+    status = []
+    for device in adb()[1:]:
         if len(device) > 0:
-            data.append(re.sub('\s+', ' ', device))
+            data.append(device.split('\t'))
     context = {'devices': data}
     return render(request, 'dashboard/adb.html', context)
+
+
+def adb_reboot(request, device_name):
+    reboot(device_name)
+    time.sleep(5)
+    data = []
+    status = []
+    for device in adb()[1:]:
+        if len(device) > 0:
+            data.append(device.split('\t'))
+    context = {'devices': data}
+    return render(request, 'dashboard/adb.html', context)
+
+
+def stop_chromedriver(request, server_id):
+    server = get_object_or_404(Server, pk=server_id)
+    try:
+        kill_chromedriver(server.chromedriver_port)
+        time.sleep(2)
+        pass
+    except Exception as e:
+        print "Error: " + e
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

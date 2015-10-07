@@ -15,7 +15,8 @@ class ServerAdmin(admin.ModelAdmin):
         ('Full Reset', {'fields': ['full_reset']}),
         ('No Reset', {'fields': ['no_reset']}),
         ('Session Override', {'fields': ['session_override']}),
-        ('Creation Date', {'fields': ['creation_date'], 'classes': ['collapse']})
+        ('Creation Date', {'fields': ['creation_date'], 'classes': ['collapse']}),
+        ('UDID', {'fields': ['udid']}),
         ]
     list_display = ('server_name', 'ip_address', 'port_number', 'chromedriver_port', 'bootstrap_port',
                     'selendroid_port', 'creation_date', 'isActive')

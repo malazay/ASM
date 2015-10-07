@@ -10,9 +10,12 @@ urlpatterns = [
     url(r'^(?P<server_id>[0-9]+)/stop/$', views.stop_server, name='stop'),
     url(r'^(?P<server_id>[0-9]+)/run/$', views.run_server, name='run'),
     url(r'^(?P<server_id>[0-9]+)/logs/$', views.log_viewer, name='logs'),
+    url(r'^(?P<server_id>[0-9]+)/stop_chromedriver/$', views.stop_chromedriver, name='stop_chromedriver'),
     url(r'^monitor/', views.monitor, name='monitor'),
     url(r'^ajax/', views.ajax, name='ajaxdata'),
     url(r'^adb_json/', views.adb_devices_json, name='adb_devices_json'),
-    url(r'^adb/', views.adb_devices, name='adb_sevices'),
+    url(r'^adb/', views.adb_devices, name='adb_devices'),
+    url(r'^adb_reboot/(?P<device_name>[\w\-]+)', views.adb_reboot, name='adb_reboot'),
+
 ]
 
