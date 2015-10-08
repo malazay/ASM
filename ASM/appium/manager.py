@@ -10,6 +10,8 @@ from ast import literal_eval
 from threading import Thread
 
 
+
+
 pid = None
 
 
@@ -108,7 +110,10 @@ def stop_appium_server(port):
 
 def check_server_status(ip, port):
     #socket.setdefaulttimeout(5)
-    url = "http://"+ip+":"+port+"/wd/hub/status/"
+    ip_address = ip
+    if "0.0.0.0" in ip:
+        ip_address = socket.gethostbyname(socket.gethostname())
+    url = "http://"+ip_address+":"+port+"/wd/hub/status/"
     if get_node_pid_by_port(port) is not None:
         print("Checking status of server: " + url)
         try:
