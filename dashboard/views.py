@@ -78,14 +78,12 @@ def ajax(request):
     data = coredata
     return HttpResponse(json.dumps(data), content_type="application/json")
 
-
 def adb_devices_json(request):
     data = []
     for device in adb()[1:]:
         if len(device) > 0:
             data.append(device.split('\t'))
     return HttpResponse(json.dumps(data), content_type="application/json")
-
 
 def adb_devices(request):
     data = []
@@ -95,7 +93,6 @@ def adb_devices(request):
             data.append(device.split('\t'))
     context = {'devices': data, 'device_name': device_name}
     return render(request, 'dashboard/adb.html', context)
-
 
 def adb_reboot(request, device_name):
     reboot(device_name)
@@ -107,7 +104,6 @@ def adb_reboot(request, device_name):
             data.append(device.split('\t'))
     context = {'devices': data}
     return render(request, 'dashboard/adb.html', context)
-
 
 def stop_chromedriver(request, server_id):
     server = get_object_or_404(Server, pk=server_id)
