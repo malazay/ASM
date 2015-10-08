@@ -11,14 +11,9 @@ $.ajaxSetup({
 $(document).ready(function(){
 setInterval(function(){
 $("#log").load("/static/logs/" + {{ server.id }} + ".txt")
+window.scrollTo(0,document.body.scrollHeight);
 }, 5000);
 });
-
-function autoScrolling() {
-   window.scrollTo(0,document.body.scrollHeight);
-}
-
-setInterval(autoScrolling, 5000);
 </script>
 </head>
 <body>
