@@ -1,0 +1,87 @@
+{% load sysmon_tags %}
+{% block content %}
+{% get_system_stats %}
+<style>
+    .graph {
+        background-color: #fff;
+        position: relative;
+        width: 98%;
+        border: 1px solid #999;
+        padding: 1px;
+    }
+    .graph .bar {
+        display: block;
+        padding: 2px;
+        position: relative;
+        background: #AEAEAE;
+        color: #444;
+        height: 1em;
+        line-height: 1.1em;
+        border: 1px solid #ccc;
+    }
+    .graph .bar span { position: absolute; left: 1em; }
+    .module table td.process { white-space: normal; }
+
+    .cth {
+        padding: 2px; background-color: #eee;
+    }
+</style>
+
+{% if user.is_superuser %}
+<div class="module">
+    {% if error_psutil %}
+        <table width="100%">
+            <caption>! ERROR (psutil not found)</caption>
+            <tbody>
+                <th>
+                    - Please install psutil for view system statistics on this page
+                    <br /><br />
+                    $ pip install psutil
+                </th>
+            </tbody>
+        </table>
+    {% else %}
+    <table width="100%">
+        <tbody id="body-sysmon">
+            <!-- CPU -->
+            <tr>
+                <th colspan="5" class="cth">CPU</th>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="graph">
+                        <strong class="bar" style="width: {{cpu_info.used}}%;{% if cpu_info.used > 90 %}background: #E72424{% endif %}">{{cpu_info.used}}% | Core(s): {{cpu_info.core}}</strong>
+                    </div>
+                </td>
+            </tr>
+            <!-- RAM -->
+            <tr>
+                <th colspan="5" class="cth">Memory usage</th>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <div class="graph">
+                        <strong class="bar" style="width: {{mem_info.used}}%;{% if mem_info.used > 90 %}background: #E72424{% endif %}">{{mem_info.used}}% | Total: {{mem_info.total}}</strong>
+                    </div>
+                </td>
+            </tr>
+            <!-- DISK -->
+            <tr>
+                <th class="cth" colspan="5">Disks</th>
+            </tr>
+            {% for part in partitions %}
+            <tr>
+                <td colspan="5">
+                <div class="graph">
+                    <strong class="bar" style="width: {{part.percent}}%;{% if part.percent > 90 %}background: #E72424{% endif %}">{{part.percent}}% | {{part.mountpoint}} | ({{part.total}})</strong>
+                </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+</div>
+{% endif %}
+{% endif %}
+
+{% endblock %}

@@ -10,16 +10,15 @@
                 <ul class="nav nav-sidebar">
                   <li class="active"><a href="/dashboard/">Servers List</a></li>
                   <li><a href="/adb/">Connected Devices</a></li>
-                  <li><a href="/monitor/">Host Performance</a></li>
-                  <li><a href="#">Export to CSV</a></li>
                   {% if user.is_authenticated %}
+                  <li><a href="/monitor/">Host Performance</a></li>
                   <li><a href="/admin/dashboard/server/">Manage Servers</a></li>
                   {% endif %}
                 </ul>
                 <ul class="nav nav-sidebar">
                 </ul>
         </div><!--/span-->
-        <div class="col-sm-9 col-md-10 main">
+        <div class="col-sm-9 col-md-10 main circulillo">
           <!--toggle sidebar button-->
           <p class="visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>

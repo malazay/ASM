@@ -137,6 +137,16 @@ def reboot(name):
     os.system(command)
 
 
+def adb_get_name(name):
+    device_name = []
+    command = "adb -s " + name + " shell getprop ro.product.model"
+    proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+    for line in iter(proc.stdout.readline, ''):
+        device_name.append(line.strip())
+    return device_name
+
+
+
 def is_chromedriver_running(port):
     if get_process_pid_by_port("chromedriver.exe", port) is None:
         return False

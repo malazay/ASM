@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
-from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver
+from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver, adb_get_name
 from ASM.monitor.stats import percore_cpu
 import time
 
@@ -64,6 +64,11 @@ def monitor(request):
     return render(request, 'dashboard/monitor.html', context)
 
 
+def monitor_data(request):
+    context = {'server_list': ""}
+    return render(request, 'dashboard/monitor_data.html', context)
+
+
 def ajax(request):
     data = collections.OrderedDict()
     cpu_count = percore_cpu()
@@ -84,11 +89,11 @@ def adb_devices_json(request):
 
 def adb_devices(request):
     data = []
-    status = []
+    device_name = []
     for device in adb()[1:]:
         if len(device) > 0:
             data.append(device.split('\t'))
-    context = {'devices': data}
+    context = {'devices': data, 'device_name': device_name}
     return render(request, 'dashboard/adb.html', context)
 
 

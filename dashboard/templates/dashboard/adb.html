@@ -10,33 +10,37 @@
                 <ul class="nav nav-sidebar">
                   <li><a href="/dashboard/">Servers List</a></li>
                   <li class="active"><a href="/adb/">Connected Devices</a></li>
-                  <li><a href="/monitor/">Host Performance</a></li>
-                  <li><a href="#">Export to CSV</a></li>
                   {% if user.is_authenticated %}
+                  <li><a href="/monitor/">Host Performance</a></li>
                   <li><a href="/admin/dashboard/server/">Manage Servers</a></li>
                   {% endif %}
                 </ul>
                 <ul class="nav nav-sidebar">
                 </ul>
         </div><!--/span-->
-        <div class="col-sm-9 col-md-10 main">
+        <div class="col-sm-9 col-md-10 main circulillo">
           <!--toggle sidebar button-->
           <p class="visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
           </p>
 		      <h1 class="page-header">
-            Dashboard
+            Connected Devices
           </h1>
           <div class="row placeholders">
                 {% for device in devices %}
               <ul class="deviceList">
+                <li>Device: {{ device.0 }}</li>
               {% if "device" in device.1 %}
-                <li>Device: {{ device.0 }} - Status: Connected</li>
+                <li>Status: Connected</li>
                 {% else %}
-                <li>Device: {{ device.0 }} - Status: {{ device.1 }}</li>
+                <li class=capitalize>Status: {{ device.1 }}</li>
                 {% endif %}
                 <li><a href="/adb_reboot/{{ device.0 }}">Reboot</a></li>
               </ul>
+              {% empty %}
+              <h1>There are no devices connected or adb is not recognizing them.</h2>
+
+              <h3>If there are plugged devices, check the drivers and try again.</h1>
               {% endfor %}
           </div>
       </div><!--/row-->

@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^(?P<server_id>[0-9]+)/logs/$', views.log_viewer, name='logs'),
     url(r'^(?P<server_id>[0-9]+)/stop_chromedriver/$', views.stop_chromedriver, name='stop_chromedriver'),
     url(r'^monitor/', views.monitor, name='monitor'),
+    url(r'^monitor_data/', views.monitor_data, name='monitor_data'),
     url(r'^ajax/', views.ajax, name='ajaxdata'),
     url(r'^adb_json/', views.adb_devices_json, name='adb_devices_json'),
     url(r'^adb/', views.adb_devices, name='adb_devices'),

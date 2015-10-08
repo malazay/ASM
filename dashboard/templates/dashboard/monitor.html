@@ -1,28 +1,55 @@
 {% include "dashboard/base_generic.html" %}
-{% load staticfiles %}
 
 <html>
 <head>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript">
-$.ajaxSetup ({
-        cache: false
-    });
-
-    setInterval(function(){
-        $.getJSON('/ajax/', function(data) {
-            $('#ajaxcore').empty();
-            for(var i in data) {
-                $('#ajaxcore').append("Core " + i + ": ");
-                $('#ajaxcore').append(data[i]);
-                $('#ajaxcore').append("<br />");
-            }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $.ajaxSetup({
+            cache: false
         });
-    }, 1000);
-</script>
+        $(document).ready(function(){
+        setInterval(function(){
+        $("#monitor").load("/dashboard/monitor_data")
+        }, 3000);
+        });
+    </script>
 
 </head>
 <body>
-    <div id=ajaxcore>Response: </div>
+    <div class="container-fluid">
+            <div class="row row-offcanvas row-offcanvas-left">
+                <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+                    <ul class="nav nav-sidebar">
+                      <li><a href="/dashboard/">Servers List</a></li>
+                      <li><a href="/adb/">Connected Devices</a></li>
+                      {% if user.is_authenticated %}
+                      <li class="active"><a href="/monitor/">Host Performance</a></li>
+                      <li><a href="/admin/dashboard/server/">Manage Servers</a></li>
+                      {% endif %}
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                    </ul>
+            </div><!--/span-->
+            <div class="col-sm-9 col-md-10 main circulillo">
+              <!--toggle sidebar button-->
+              <p class="visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+              </p>
+              <h1 class="page-header">
+                Server Monitor
+              </h1>
+              <div class="row placeholders">
+              {% if user.is_authenticated %}
+                <div id="monitor">
+                {% include 'dashboard/monitor_data.html' %}
+                </div>
+              {% else %}
+              <h1>Only logged users can access this information.</h1>
+              {% endif %}
+              </div>
+          </div><!--/row-->
+        </div>
+            </div>
+    
 </body>
 </html>
