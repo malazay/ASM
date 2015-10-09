@@ -41,5 +41,3 @@ class ServerAdminExportImport(ImportExportModelAdmin):
 
 admin.site.register(Server, ServerAdmin)
 dataset = ServerResource().export()
-
-print dataset.csv

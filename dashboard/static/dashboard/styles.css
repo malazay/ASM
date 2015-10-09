@@ -99,6 +99,13 @@ a.serverCircle {
    text-decoration: none;
 }
 
+
+	#box1:target {
+		display:block;
+	}
+
+
+
 #log {
   white-space: pre-line;
 }

@@ -48,13 +48,13 @@ def run_server(request, server_id):
     reset = "no"
     if server.full_reset:
         reset = "full"
-    if server.udid is not None:
+    if server.udid is not None and type(server.udid) is not 'NoneType' and len(server.udid) > 0:
         params += " -U " + server.udid
     start_appium_server(server.ip_address, server.port_number, server.chromedriver_port, server.bootstrap_port,
                         server.selendroid_port, reset, server.session_override, params, server_id+".txt")
     counter = 0
-    while server.isActive is not True and counter < 10:
-        time.sleep(2)
+    while server.isActive() is not True and counter < 10:
+        time.sleep(1)
         counter += 1
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
@@ -107,6 +107,7 @@ def adb_reboot(request, device_name):
             data.append(device.split('\t'))
     context = {'devices': data}
     return render(request, 'dashboard/adb.html', context)
+
 
 def stop_chromedriver(request, server_id):
     server = get_object_or_404(Server, pk=server_id)
