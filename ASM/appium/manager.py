@@ -99,7 +99,7 @@ def kill_process_on_port(process_name, port):
 
 
 def get_node_pid_by_port(port):
-    node_pid = get_process_pid_by_port("node.exe", port)
+    node_pid = get_process_pid_by_port("node", port)
     if node_pid is None:
         print "Server with port: " + str(port) + " is not running"
     return node_pid
@@ -157,14 +157,14 @@ def adb_get_name(name):
 
 
 def is_chromedriver_running(port):
-    if get_process_pid_by_port("chromedriver.exe", port) is None:
+    if get_process_pid_by_port("chromedriver", port) is None:
         return False
     else:
         return True
 
 
 def kill_chromedriver(port):
-    chromedriver_pid = get_process_pid_by_port("chromedriver.exe", port)
+    chromedriver_pid = get_process_pid_by_port("chromedriver", port)
     print "Stopping Chromedriver on port: " + str(port)
     p = psutil.Process(int(chromedriver_pid))
     p.terminate()
