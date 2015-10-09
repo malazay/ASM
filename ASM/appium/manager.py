@@ -6,7 +6,7 @@ import json
 import psutil
 import sys
 import subprocess
-from ast import literal_eval
+import platform
 from threading import Thread
 
 
@@ -67,7 +67,11 @@ def start_appium_server(ip,port,chromedriver,bootstrap, selendroid, reset, overr
 
 
 def get_list_of_processes_pid(process_name):
-    return [item.split()[1] for item in os.popen('tasklist').read().splitlines()[4:] if process_name in item.split()]
+    list_of_pids = []
+    for process in psutil.process_iter():
+        if process_name in str(process):
+            list_of_pids.append(process.pid)
+    return list_of_pids
 
 
 def get_process_pid_by_port(process_name, port):
