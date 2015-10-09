@@ -108,12 +108,11 @@ def get_node_pid_by_port(port):
 @postpone
 def stop_appium_server(port):
     print "Stopping Appium Server on port: " + str(port)
-    kill_process_on_port("node.exe", port)
+    kill_process_on_port("node", port)
     print "Appium Server stopped"
 
 
 def check_server_status(ip, port):
-    #socket.setdefaulttimeout(5)
     ip_address = ip
     if "0.0.0.0" in ip:
         try:
