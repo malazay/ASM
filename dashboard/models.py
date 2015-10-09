@@ -18,7 +18,7 @@ class Server(models.Model):
     full_reset = models.BooleanField(default=True)
     no_reset = models.BooleanField(default=False)
     session_override = models.BooleanField(default=True)
-    udid = models.CharField(max_length=150, blank=True)
+    udid = models.CharField(max_length=150, blank=True, null=True)
 
     def __str__(self):
         return self.server_name

@@ -15,8 +15,8 @@
         position: relative;
         background: #AEAEAE;
         color: #444;
-        height: 1em;
-        line-height: 1.1em;
+        height: 2em;
+        line-height: 0.9em;
         border: 1px solid #ccc;
     }
     .graph .bar span { position: absolute; left: 1em; }
@@ -25,6 +25,11 @@
     .cth {
         padding: 2px; background-color: #eee;
     }
+
+    .letra {
+        font-size: 100%;
+    }
+
 </style>
 
 {% if user.is_superuser %}
@@ -50,7 +55,7 @@
             <tr>
                 <td colspan="5">
                     <div class="graph">
-                        <strong class="bar" style="width: {{cpu_info.used}}%;{% if cpu_info.used > 90 %}background: #E72424{% endif %}">{{cpu_info.used}}% | Core(s): {{cpu_info.core}}</strong>
+                        <strong class="bar letra" style="width: {{cpu_info.used}}%;{% if cpu_info.used > 90 %}background: #E72424{% endif %}">{{cpu_info.used}}% | Core(s): {{cpu_info.core}}</strong>
                     </div>
                 </td>
             </tr>
@@ -61,7 +66,7 @@
             <tr>
                 <td colspan="5">
                     <div class="graph">
-                        <strong class="bar" style="width: {{mem_info.used}}%;{% if mem_info.used > 90 %}background: #E72424{% endif %}">{{mem_info.used}}% | Total: {{mem_info.total}}</strong>
+                        <strong class="bar letra" style="width: {{mem_info.used}}%;{% if mem_info.used > 90 %}background: #E72424{% endif %}">{{mem_info.used}}% | Total: {{mem_info.total}}</strong>
                     </div>
                 </td>
             </tr>
@@ -73,7 +78,7 @@
             <tr>
                 <td colspan="5">
                 <div class="graph">
-                    <strong class="bar" style="width: {{part.percent}}%;{% if part.percent > 90 %}background: #E72424{% endif %}">{{part.percent}}% | {{part.mountpoint}} | ({{part.total}})</strong>
+                    <strong class="bar letra" style="width: {{part.percent}}%;{% if part.percent > 90 %}background: #E72424{% endif %}">{{part.percent}}% | {{part.mountpoint}} | ({{part.total}})</strong>
                 </div>
                 </td>
             </tr>

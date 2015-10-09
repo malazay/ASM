@@ -52,7 +52,10 @@ def run_server(request, server_id):
         params += " -U " + server.udid
     start_appium_server(server.ip_address, server.port_number, server.chromedriver_port, server.bootstrap_port,
                         server.selendroid_port, reset, server.session_override, params, server_id+".txt")
-    time.sleep(5)
+    counter = 0
+    while server.isActive is not True and counter < 10:
+        time.sleep(1)
+        counter += 1
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 

@@ -1,4 +1,4 @@
 Django==1.8.4
 django-bootstrap3==6.2.2
 psutil==3.2.2
-
+django-import-export==0.2.8

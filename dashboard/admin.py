@@ -1,9 +1,20 @@
 from django.contrib import admin
+from import_export import resources
 from .models import Server
+from import_export.admin import ImportExportModelAdmin, ImportExportMixin
 
 
+class ServerResource(resources.ModelResource):
 
-class ServerAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Server
+        skip_unchanged = True
+        report_skipped = True
+        exclude = ('server_status', 'full_reset', 'no_reset', 'session_override', 'creation_date', 'command_timeout')
+
+
+class ServerAdmin(ImportExportMixin,admin.ModelAdmin):
+    resource_class = ServerResource
     fieldsets = [
         ('Server Name', {'fields': ['server_name']}),
         ('IP Address', {'fields': ['ip_address']}),
@@ -24,4 +35,11 @@ class ServerAdmin(admin.ModelAdmin):
     search_fields = ['server_name', 'ip_address', 'port_number', 'server_status']
 
 
+class ServerAdminExportImport(ImportExportModelAdmin):
+    resource_class = ServerResource
+    pass
+
 admin.site.register(Server, ServerAdmin)
+dataset = ServerResource().export()
+
+print dataset.csv
