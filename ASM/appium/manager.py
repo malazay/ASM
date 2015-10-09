@@ -119,7 +119,7 @@ def check_server_status(ip, port):
         try:
             ip_address = socket.gethostbyname(socket.gethostname())
         except Exception as e:
-            print "Exception thrown: " + e + ". Using localhost as hostname"
+            print "Exception thrown: " + str(e) + ". Using localhost as hostname"
             ip_address = socket.gethostbyname('localhost')
     url = "http://"+ip_address+":"+port+"/wd/hub/status/"
     if get_node_pid_by_port(port) is not None:
