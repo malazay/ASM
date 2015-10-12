@@ -17,7 +17,7 @@ $ npm install -g appium
 
 1. Install Python 2.7.x.
 2. Install Pip.
-3. Pull this repository.
+3. Clone this repository.
 4. Navigate to the repository root folder.
 5. on the command line type:
 ```
