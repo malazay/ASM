@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'dashboard',
     'bootstrap3',
     'sysmon',
-    'import_export'
+    'import_export',
 )
 
 MIDDLEWARE_CLASSES = (

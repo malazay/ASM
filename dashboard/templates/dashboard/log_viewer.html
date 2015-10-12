@@ -3,17 +3,8 @@
 {% load static %}
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
-$.ajaxSetup({
-    cache: false
-});
-$(document).ready(function(){
-setInterval(function(){
-$("#log").load("/static/logs/" + {{ server.id }} + ".txt")
-window.scrollTo(0,document.body.scrollHeight);
-}, 5000);
-});
+log_viewer({{ server.id }});
 </script>
 </head>
 <body>

@@ -1,20 +1,14 @@
-2015-10-09 16:09:27:325 - info: Welcome to Appium v1.4.10 (REV c97e824665ae82df682a0b540b38dfe8c13c8ac7)
-2015-10-09 16:09:27:328 - info: Appium REST http interface listener started on 127.0.0.1:8989
-2015-10-09 16:09:27:332 - info: [debug] Non-default server args: {"address":"127.0.0.1","port":8989,"bootstrapPort":9001,"sessionOverride":true,"fullReset":true,"log":"C:\\Users\\alexis1\\PycharmProjects\\ASM\\dashboard\\static\\logs\\8.txt","localTimezone":true,"logNoColors":true,"selendroidPort":9002,"chromeDriverPort":9000}
-2015-10-09 16:09:27:332 - info: Console LogLevel: debug
-2015-10-09 16:09:27:333 - info: File LogLevel: debug
-2015-10-09 16:09:28:046 - info: --> GET /wd/hub/status/ {}
-2015-10-09 16:09:28:048 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-09 16:09:28:057 - info: <-- GET /wd/hub/status/ 200 9.036 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-09 16:09:28:848 - info: --> GET /wd/hub/status/ {}
-2015-10-09 16:09:28:848 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-09 16:09:28:850 - info: <-- GET /wd/hub/status/ 200 2.481 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-09 16:12:32:854 - info: --> GET /wd/hub/status/ {}
-2015-10-09 16:12:32:855 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-09 16:12:32:856 - info: <-- GET /wd/hub/status/ 200 1.662 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-09 16:12:37:065 - info: --> GET /wd/hub/status/ {}
-2015-10-09 16:12:37:066 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-09 16:12:37:067 - info: <-- GET /wd/hub/status/ 200 2.305 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-09 16:12:37:974 - info: --> GET /wd/hub/status/ {}
-2015-10-09 16:12:37:975 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-10-09 16:12:37:976 - info: <-- GET /wd/hub/status/ 200 2.136 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 11:41:03:172 - info: Welcome to Appium v1.4.10 (REV c97e824665ae82df682a0b540b38dfe8c13c8ac7)
+2015-10-12 11:41:03:179 - info: Appium REST http interface listener started on 127.0.0.1:8989
+2015-10-12 11:41:03:184 - info: [debug] Non-default server args: {"address":"127.0.0.1","port":8989,"bootstrapPort":9001,"sessionOverride":true,"fullReset":true,"log":"C:\\Users\\alexis1\\PycharmProjects\\ASM\\dashboard\\static\\logs\\8.txt","localTimezone":true,"logNoColors":true,"selendroidPort":9002,"chromeDriverPort":9000}
+2015-10-12 11:41:03:185 - info: Console LogLevel: debug
+2015-10-12 11:41:03:186 - info: File LogLevel: debug
+2015-10-12 11:41:03:405 - info: --> GET /wd/hub/status/ {}
+2015-10-12 11:41:03:408 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 11:41:03:435 - info: <-- GET /wd/hub/status/ 200 14.873 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 11:41:04:715 - info: --> GET /wd/hub/status/ {}
+2015-10-12 11:41:04:717 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 11:41:04:724 - info: <-- GET /wd/hub/status/ 200 4.777 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 11:42:56:269 - info: --> GET /wd/hub/status/ {}
+2015-10-12 11:42:56:269 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 11:42:56:271 - info: <-- GET /wd/hub/status/ 200 1.855 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}

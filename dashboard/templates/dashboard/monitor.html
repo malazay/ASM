@@ -2,18 +2,9 @@
 
 <html>
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-        $.ajaxSetup({
-            cache: false
-        });
-        $(document).ready(function(){
-        setInterval(function(){
-        $("#monitor").load("/dashboard/monitor_data")
-        }, 3000);
-        });
+        load_monitor_data();
     </script>
-
 </head>
 <body>
     <div class="container-fluid">
@@ -50,6 +41,6 @@
           </div><!--/row-->
         </div>
             </div>
-    
+
 </body>
 </html>

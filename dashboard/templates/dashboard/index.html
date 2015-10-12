@@ -2,29 +2,8 @@
 <html>
     <head>
         <title>Dashboard</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
 <body>
-<script>
-        function animateCircle(linkid, circleid){
-            $('#'+ linkid).click( function() {
-              console.log("button clicked")
-              function loop() {
-                $('#'+ circleid).animate ({
-                  opacity: '0.2' 
-                  }, 2000, 'linear', function() {
-                      loop();
-                  });
-                  $('#'+ circleid).animate ({
-                     opacity: '1.0'
-                  }, 2000, 'linear', function() {
-                      loop();
-                  });
-              } 
-              loop();
-            });
-            };
-        </script
     <div class="container-fluid">
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
@@ -52,10 +31,10 @@
             <div class="col-xs-6 col-sm-3 placeholder text-center">
                 {% if server.isActive %}
               <a href="/dashboard/{{ server.id }}/" class="serverCircle center-block" id=serverCircle{{ server.id }} alt="Generic placeholder thumbnail" >{{ server.port_number }}</a>
-                <h4><a class="pure-button" id=serverlink{{ server.id }} href="{% url 'stop' server.id %}">Stop</a></h4>
+                <h4><a class="pure-button" href="{% url 'stop' server.id %}" onclick="animateServer('serverCircle{{ server.id }}')">Stop</a></h4>
                 {% else %}
               <a href="/dashboard/{{ server.id }}/" class="serverCircle inactive center-block" id=serverCircle{{ server.id }} alt="Generic placeholder thumbnail">{{ server.port_number }}</a>
-                <h4><a class="pure-button runserver id=serverlink{{ server.id }}" href="{% url 'run' server.id %}" onSubmit="animateCircle('serverlink{{ server.id }}', 'serverCircle{{ server.id }}')">Run</a></h4>
+                <h4><a class="pure-button runserver" href="{% url 'run' server.id %}" onclick="animateServer('serverCircle{{ server.id }}')">Run</a></h4>
                 {% endif %}
               <span class="text-muted">{{ server.server_name }}</span>
             </div>
