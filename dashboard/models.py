@@ -2,13 +2,14 @@ from django.db import models
 from datetime import datetime
 from ASM.appium import manager
 import os
+from validators import validate_path
 from ASM.settings import PROJECT_ROOT
 
 
 class Appium_Executable(models.Model):
     display_name = models.CharField(max_length=500, default="Default Executable")
     installed_by_npm = models.BooleanField(default=True)
-    executable_path = models.CharField(max_length=500, default="appium")
+    executable_path = models.CharField(max_length=500, default="appium", validators=[validate_path])
     node_path = models.CharField(max_length=500, blank=True, null=True)
     creation_date = models.DateTimeField('date created', default=datetime.now)
 
