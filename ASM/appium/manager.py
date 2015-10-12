@@ -43,7 +43,15 @@ def run_command_and_log(command, logfile):
         print subprocess.Popen(command, shell=True, universal_newlines=True, stderr=subprocess.STDOUT, stdout=out)
 
 
-def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile):
+def set_appium_executable(node_path, appium_path):
+    path = ""
+    if node_path is not None:
+        path += node_path + " "
+    if appium_path is not None:
+        path += appium_path
+    return path
+
+def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile):
     if params is None:
         params = ""
     if reset is "full":
@@ -54,14 +62,14 @@ def set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, over
         params += ""
     if override is True:
         params += " --session-override"
-    return "appium --address " + ip + " -p " + port + " --chromedriver-port " + chromedriver + " --bootstrap-port " + \
+    return set_appium_executable(node_path, appium_path) + " --address " + ip + " -p " + port + " --chromedriver-port " + chromedriver + " --bootstrap-port " + \
            bootstrap + " --selendroid-port " + selendroid + " " + params + " --log " + os.getcwd() + \
            "\\dashboard\\static\\logs\\" + logfile + " --log-no-colors"
 
 
 @postpone
-def start_appium_server(ip,port,chromedriver,bootstrap, selendroid, reset, override, params, logfile):
-    command = set_appium_server(ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile)
+def start_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile):
+    command = set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile)
     print command
     os.system(command)
 
@@ -124,7 +132,7 @@ def check_server_status(ip, port):
     if get_node_pid_by_port(port) is not None:
         print("Checking status of server: " + url)
         try:
-            server = urllib2.urlopen(url)
+            server = urllib2.urlopen(url, None, 5)
             data = json.load(server)
             status = True
         except:

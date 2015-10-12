@@ -1,0 +1,23 @@
+2015-10-12 16:58:47:487 - info: Welcome to Appium v1.4.10 (REV c97e824665ae82df682a0b540b38dfe8c13c8ac7)
+2015-10-12 16:58:47:491 - info: Appium REST http interface listener started on 0.0.0.0:4723
+2015-10-12 16:58:47:494 - info: [debug] Non-default server args: {"bootstrapPort":1234,"sessionOverride":true,"fullReset":true,"log":"C:\\ASM\\dashboard\\static\\logs\\9.txt","localTimezone":true,"logNoColors":true,"selendroidPort":4879,"chromeDriverPort":9595}
+2015-10-12 16:58:47:495 - info: Console LogLevel: debug
+2015-10-12 16:58:47:495 - info: File LogLevel: debug
+2015-10-12 16:58:54:560 - info: --> GET /wd/hub/status/ {}
+2015-10-12 16:58:54:564 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 16:58:54:575 - info: <-- GET /wd/hub/status/ 200 15.485 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 16:58:54:818 - info: --> GET /wd/hub/status/ {}
+2015-10-12 16:58:54:819 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 16:58:54:822 - info: <-- GET /wd/hub/status/ 200 4.079 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 16:59:01:223 - info: --> GET /wd/hub/status/ {}
+2015-10-12 16:59:01:224 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 16:59:01:226 - info: <-- GET /wd/hub/status/ 200 2.117 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 17:01:23:310 - info: --> GET /wd/hub/status/ {}
+2015-10-12 17:01:23:311 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 17:01:23:312 - info: <-- GET /wd/hub/status/ 200 1.668 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 17:01:33:767 - info: --> GET /wd/hub/status/ {}
+2015-10-12 17:01:33:767 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 17:01:33:769 - info: <-- GET /wd/hub/status/ 200 2.567 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 17:01:41:486 - info: --> GET /wd/hub/status/ {}
+2015-10-12 17:01:41:486 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-10-12 17:01:41:488 - info: <-- GET /wd/hub/status/ 200 2.200 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}

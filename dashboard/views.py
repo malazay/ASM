@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.shortcuts import redirect
 from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver, adb_get_name
 from ASM.monitor.stats import percore_cpu
@@ -7,7 +7,7 @@ import time
 # Create your views here.
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.decorators.clickjacking import xframe_options_exempt
-from .models import Server
+from .models import Server, Appium_Executable
 import collections
 import json
 
@@ -43,6 +43,7 @@ def log_viewer(request, server_id):
 
 def run_server(request, server_id):
     server = get_object_or_404(Server, pk=server_id)
+    appium_config = get_object_or_404(Appium_Executable, pk=server.appium_executable._get_pk_val)
     server.server_status = server.isActive()
     params = "--local-timezone"
     reset = "no"
@@ -50,7 +51,7 @@ def run_server(request, server_id):
         reset = "full"
     if server.udid is not None and type(server.udid) is not 'NoneType' and len(server.udid) > 0:
         params += " -U " + server.udid
-    start_appium_server(server.ip_address, server.port_number, server.chromedriver_port, server.bootstrap_port,
+    start_appium_server(appium_config.node_path, appium_config.executable_path, server.ip_address, server.port_number, server.chromedriver_port, server.bootstrap_port,
                         server.selendroid_port, reset, server.session_override, params, server_id+".txt")
     counter = 0
     while server.isActive() is not True and counter < 10:

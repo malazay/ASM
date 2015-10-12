@@ -5,8 +5,30 @@ import os
 from ASM.settings import PROJECT_ROOT
 
 
+class Appium_Executable(models.Model):
+    display_name = models.CharField(max_length=500, default="Default Executable")
+    installed_by_npm = models.BooleanField(default=True)
+    executable_path = models.CharField(max_length=500, default="appium")
+    node_path = models.CharField(max_length=500, blank=True, null=True)
+    creation_date = models.DateTimeField('date created', default=datetime.now)
+
+    def __str__(self):
+        return self.display_name
+
+    class Meta:
+        verbose_name = 'Appium Configuration'
+        verbose_name_plural = 'Appium Configurations'
+
+    def executable_exists(self):
+        return os.path.isfile(self.executable_path)
+
+    def is_node_installed(self):
+        return len(os.popen('node -v').read()) > 0
+
+
 class Server(models.Model):
     server_name = models.CharField(max_length=50, default="Server Name")
+    appium_executable = models.ForeignKey(Appium_Executable)
     ip_address = models.CharField(max_length=20, default="127.0.0.1")
     port_number = models.CharField(max_length=5)
     chromedriver_port = models.CharField(max_length=5)
@@ -35,3 +57,5 @@ class Server(models.Model):
 
     def chromedriver_open(self):
         return manager.is_chromedriver_running(self.chromedriver_port)
+
+
