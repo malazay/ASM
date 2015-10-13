@@ -18,7 +18,7 @@
                 <ul class="nav nav-sidebar">
                 </ul>
         </div><!--/span-->
-        <div class="col-sm-9 col-md-10 main circulillo">
+        <div class="col-sm-10 col-md-10 main">
           <!--toggle sidebar button-->
           <p class="visible-xs">
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
@@ -28,7 +28,7 @@
           </h1>
           <div class="row placeholders">
               {% for server in server_list %}
-            <div class="col-xs-6 col-sm-3 placeholder text-center">
+            <div class="col-xs-6 col-sm-3 placeholder text-center serverContainer">
                 {% if server.isActive %}
               <a href="/dashboard/{{ server.id }}/" class="serverCircle center-block" id=serverCircle{{ server.id }} alt="Generic placeholder thumbnail" >{{ server.port_number }}</a>
                 <h4><a class="pure-button" href="{% url 'stop' server.id %}" onclick="animateServer('serverCircle{{ server.id }}')">Stop</a></h4>

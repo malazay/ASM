@@ -2,14 +2,15 @@ from django.db import models
 from datetime import datetime
 from ASM.appium import manager
 import os
-from validators import validate_path
+from validators import validate_path, clean_executable_path
+from django.core.exceptions import ValidationError
 from ASM.settings import PROJECT_ROOT
 
 
 class Appium_Executable(models.Model):
     display_name = models.CharField(max_length=500, default="Default Executable")
     installed_by_npm = models.BooleanField(default=True)
-    executable_path = models.CharField(max_length=500, default="appium", validators=[validate_path])
+    executable_path = models.CharField(max_length=500, default="appium")
     node_path = models.CharField(max_length=500, blank=True, null=True)
     creation_date = models.DateTimeField('date created', default=datetime.now)
 
@@ -24,7 +25,18 @@ class Appium_Executable(models.Model):
         return os.path.isfile(self.executable_path)
 
     def is_node_installed(self):
-        return len(os.popen('node -v').read()) > 0
+        return len(os.popen(self.node_path + " -v").read()) > 0
+
+    def clean(self):
+        if self.installed_by_npm is False:
+            if os.path.isfile(self.executable_path) is False:
+                raise ValidationError('Appium is not present in the path: %s' % self.executable_path)
+            if os.path.isfile(self.node_path) is False and self.is_node_installed() is False:
+                raise ValidationError('Node is not present in the specified path, is not installed, '
+                                      'or is not specified in the environment variables : %s' % self.node_path)
+        else:
+            if self.executable_path not in os.popen('npm view "' + self.executable_path + '" name').read():
+                raise ValidationError(self.executable_path + 'is not present as an NPM module')
 
 
 class Server(models.Model):
