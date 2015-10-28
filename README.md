@@ -7,7 +7,7 @@ Page built with Django to create/edit Appium server configurations and start/sto
 
 ## Requirements:
 1. Node and NPM.
-2. Appium installed through NPM. (Other ways of appium installations will be supported in the future).
+2. Appium. (Installed by NPM or by any other method)
 ```
 URL: "https://github.com/appium/appium"
 $ npm install -g appium
@@ -27,5 +27,7 @@ $ pip install -r requirements.txt
 ```
 $ python manage.py runserver
 ```
+
+
 
 
