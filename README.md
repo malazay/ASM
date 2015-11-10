@@ -28,6 +28,10 @@ $ pip install -r requirements.txt
 $ python manage.py runserver
 ```
 
+## Admin username
+
+$ user: admin
+$ pass: admin
 
 
 
