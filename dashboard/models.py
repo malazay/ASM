@@ -59,7 +59,10 @@ class Server(models.Model):
         return self.server_name
 
     def isActive(self):
-        return manager.check_server_status(self.ip_address, self.port_number)
+        try:
+            return manager.check_server_status(self.ip_address, self.port_number)
+        except Exception as e:
+            return False
     isActive.admin_order_field = 'server_status'
     isActive.boolean = True
     isActive.short_description = "Server Status"
