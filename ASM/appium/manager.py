@@ -23,6 +23,16 @@ def postpone(function):
     return decorator
 
 
+def get_os():
+    uname = platform.uname()
+    if "Windows" in uname:
+        return "Win"
+    if "Linux" in uname:
+        return "Linux"
+    if "Darwin" in uname:
+        return "Mac"
+
+
 def run_command(command):
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
 
