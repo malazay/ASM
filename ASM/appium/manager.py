@@ -61,6 +61,14 @@ def set_appium_executable(node_path, appium_path):
         path += appium_path
     return path
 
+def set_log_folder():
+    log_folder = os.getcwd()
+    if "Win" in get_os():
+        log_folder += "\\dashboard\\static\\logs\\"
+    else:
+        log_folder += "/dashboard/static/logs/"
+    return log_folder
+
 def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile):
     if params is None:
         params = ""
@@ -73,8 +81,7 @@ def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap,
     if override is True:
         params += " --session-override"
     return set_appium_executable(node_path, appium_path) + " --address " + ip + " -p " + port + " --chromedriver-port " + chromedriver + " --bootstrap-port " + \
-           bootstrap + " --selendroid-port " + selendroid + " " + params + " --log " + os.getcwd() + \
-           "\\dashboard\\static\\logs\\" + logfile + " --log-no-colors"
+           bootstrap + " --selendroid-port " + selendroid + " " + params + " --log " + set_log_folder() + logfile + " --log-no-colors"
 
 
 @postpone

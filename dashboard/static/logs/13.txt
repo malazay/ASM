@@ -1,0 +1,17 @@
+2015-11-10 13:32:44:125 - info: Welcome to Appium v1.4.14 (REV c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6)
+2015-11-10 13:32:44:127 - info: Appium REST http interface listener started on 0.0.0.0:4733
+2015-11-10 13:32:44:138 - info: [debug] Non-default server args: {"udid":"0ae728890298a0fd","port":4733,"bootstrapPort":4735,"sessionOverride":true,"fullReset":true,"log":"C:\\ASM\\dashboard\\static\\logs\\13.txt","localTimezone":true,"logNoColors":true,"selendroidPort":8092,"chromeDriverPort":9526}
+2015-11-10 13:32:44:139 - info: Console LogLevel: debug
+2015-11-10 13:32:44:139 - info: File LogLevel: debug
+2015-11-10 13:32:44:623 - info: --> GET /wd/hub/status/ {}
+2015-11-10 13:32:44:626 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-10 13:32:44:636 - info: <-- GET /wd/hub/status/ 200 13.485 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-10 13:32:44:977 - info: --> GET /wd/hub/status/ {}
+2015-11-10 13:32:44:979 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-10 13:32:44:982 - info: <-- GET /wd/hub/status/ 200 5.583 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-10 13:32:47:160 - info: --> GET /wd/hub/status/ {}
+2015-11-10 13:32:47:161 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-10 13:32:47:162 - info: <-- GET /wd/hub/status/ 200 2.018 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-10 13:32:47:247 - info: --> GET /wd/hub/status/ {}
+2015-11-10 13:32:47:247 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-10 13:32:47:249 - info: <-- GET /wd/hub/status/ 200 2.758 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
