@@ -45,7 +45,7 @@ def log_to_file(command):
 
 
 def run_command_and_log(command, logfile):
-    with open(os.getcwd() + set_log_folder() + logfile, 'w') as out:
+    with open(set_log_folder() + logfile, 'w') as out:
         out.write('Starting command: ' + command + '\n')
         out.flush()
         print subprocess.Popen(command, shell=True, universal_newlines=True, stderr=subprocess.STDOUT, stdout=out)

@@ -34,7 +34,7 @@ def stop_server(request, server_id):
         time.sleep(3)
         pass
     except Exception as e:
-        print "Error: " + e
+        print "Error: " + str(e)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
@@ -60,7 +60,7 @@ def run_server(request, server_id):
     if server.is_iOS:
         while not server.webkit_proxy_open() and webkit_counter < 20:
             start_webkit_proxy(server.webkit_executable.node_path, server.webkit_executable.executable_path,
-                               server.webkit_executable.port, server.udid, server_id + "webkit.txt", "")
+                               server.webkit_executable.port, server.udid, "", server_id + "webkit.txt")
             time.sleep(1)
             webkit_counter += 1
     counter = 0
