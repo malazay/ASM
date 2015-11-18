@@ -1,16 +1,16 @@
 from django.contrib import admin
 from import_export import resources
-from .models import Server, Appium_Executable
+from .models import Server, Appium_Executable, iOS_WebKit_Debug_Proxy
 from import_export.admin import ImportExportModelAdmin, ImportExportMixin
 
 
 class ServerResource(resources.ModelResource):
-
     class Meta:
         model = Server
         skip_unchanged = True
         report_skipped = True
-        exclude = ('server_status', 'full_reset', 'no_reset', 'session_override', 'creation_date', 'command_timeout')
+        exclude = ('server_status', 'full_reset', 'no_reset', 'session_override', 'creation_date', 'command_timeout',
+                   'is_iOS', 'is_iOS_Simulator', 'appium_executable')
 
 
 class AppiumAdmin(admin.ModelAdmin):
@@ -27,6 +27,7 @@ class AppiumAdmin(admin.ModelAdmin):
 class WebKitProxyAdmin(admin.ModelAdmin):
     fieldsets = [
         ('iOS WebKit Debug Proxy Name', {'fields': ['display_name']}),
+        ('Port', {'fields': ['port']}),
         ('Installed by NPM?', {'fields': ['installed_by_npm']}),
         ('iOS WebKit Proxy Executable Path', {'fields': ['executable_path']}),
         ('Node Path', {'fields': ['node_path']}),
@@ -38,7 +39,10 @@ class WebKitProxyAdmin(admin.ModelAdmin):
 class ServerAdmin(ImportExportMixin,admin.ModelAdmin):
     resource_class = ServerResource
     fieldsets = [
-        ('Appium Config',               {'fields': ['appium_executable']}),
+        ('Appium Config', {'fields': ['appium_executable']}),
+        ('iOS Server', {'fields': ['is_iOS']}),
+        ('iOS Simulator', {'fields': ['is_iOS_Simulator']}),
+        ('iOS WebKit Debug Proxy Config', {'fields': ['webkit_executable']}),
         ('Server Name', {'fields': ['server_name']}),
         ('IP Address', {'fields': ['ip_address']}),
         ('Port Number', {'fields': ['port_number']}),
@@ -58,13 +62,11 @@ class ServerAdmin(ImportExportMixin,admin.ModelAdmin):
     search_fields = ['server_name', 'ip_address', 'port_number', 'server_status']
 
 
-
-
-
 class ServerAdminExportImport(ImportExportModelAdmin):
     resource_class = ServerResource
     pass
 
 admin.site.register(Server, ServerAdmin)
 admin.site.register(Appium_Executable, AppiumAdmin)
-dataset = ServerResource().export()
+admin.site.register(iOS_WebKit_Debug_Proxy, WebKitProxyAdmin)
+#dataset = ServerResource().export()

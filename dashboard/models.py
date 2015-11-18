@@ -41,6 +41,7 @@ class Appium_Executable(models.Model):
 
 class iOS_WebKit_Debug_Proxy(models.Model):
     display_name = models.CharField(max_length=50, default="iOS WebKit Debug Proxy Name")
+    port = models.CharField(max_length=5, default="27753")
     installed_by_npm = models.BooleanField(default=True)
     executable_path = models.CharField(max_length=500, default="appium")
     node_path = models.CharField(max_length=500, blank=True, null=True)
@@ -85,15 +86,15 @@ class Server(models.Model):
     udid = models.CharField(max_length=150, blank=True, null=True)
     is_iOS = models.BooleanField(default=False)
     is_iOS_Simulator = models.BooleanField(default=False)
-    appium_executable = models.ForeignKey(iOS_WebKit_Debug_Proxy, blank=True, null=True)
+    webkit_executable = models.ForeignKey(iOS_WebKit_Debug_Proxy, blank=True, null=True)
 
     def __str__(self):
         return self.server_name
 
     def clean(self):
-        if self.is_iOS is False and self.appium_executable is not None:
+        if self.is_iOS is False and self.webkit_executable is not None:
             raise ValidationError("iOS WebKit Debug Proxy is only allowed for iOS Devices")
-        if self.is_iOS and self.is_iOS_Simulator is None and self.appium_executable is None:
+        if self.is_iOS and self.is_iOS_Simulator is None and self.webkit_executable is None:
             raise ValidationError("iOS WebKit Debug Proxy is required for real iOS Devices")
 
     def isActive(self):
