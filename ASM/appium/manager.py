@@ -1,4 +1,4 @@
-__author__ = 'Alexis1'
+from threading import Thread
 import os
 import urllib2
 import socket
@@ -7,17 +7,15 @@ import psutil
 import sys
 import subprocess
 import platform
-from threading import Thread
 
-
-
+__author__ = 'Alexis1'
 
 pid = None
 
 
 def postpone(function):
     def decorator(*args, **kwargs):
-        t = Thread(target = function, args=args, kwargs=kwargs)
+        t = Thread(target=function, args=args, kwargs=kwargs)
         t.daemon = True
         t.start()
     return decorator
@@ -47,8 +45,8 @@ def log_to_file(command):
 
 
 def run_command_and_log(command, logfile):
-    with open(os.getcwd() + "/dashboard/static/logs/" + logfile, 'w') as out:
-        out.write('Starting the Appium Server with parameters: ' + command + '\n')
+    with open(os.getcwd() + set_log_folder() + logfile, 'w') as out:
+        out.write('Starting command: ' + command + '\n')
         out.flush()
         print subprocess.Popen(command, shell=True, universal_newlines=True, stderr=subprocess.STDOUT, stdout=out)
 
@@ -61,6 +59,7 @@ def set_appium_executable(node_path, appium_path):
         path += appium_path
     return path
 
+
 def set_log_folder():
     log_folder = os.getcwd()
     if "Win" in get_os():
@@ -68,6 +67,7 @@ def set_log_folder():
     else:
         log_folder += "/dashboard/static/logs/"
     return log_folder
+
 
 def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile):
     if params is None:
@@ -183,7 +183,6 @@ def adb_get_name(name):
     return device_name
 
 
-
 def is_chromedriver_running(port):
     if get_process_pid_by_port("chromedriver", port) is None:
         return False
@@ -197,5 +196,17 @@ def kill_chromedriver(port):
     p = psutil.Process(int(chromedriver_pid))
     p.terminate()
     print "Chromedriver stopped"
+
+
+def start_webkit_proxy(node_path, webkit_path, port, udid, params, logfile):
+    if params is None:
+        params = ""
+    if node_path is None:
+        node_path = ""
+    else:
+        node_path += " "
+    command = node_path + webkit_path + " -c " + udid + ":" + port + " -d " + params
+    print command
+    run_command_and_log(command, logfile)
 
 

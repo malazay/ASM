@@ -5,6 +5,9 @@ from import_export.admin import ImportExportModelAdmin, ImportExportMixin
 
 
 class ServerResource(resources.ModelResource):
+    def init_instance(self, row=None):
+        pass
+
     class Meta:
         model = Server
         skip_unchanged = True
@@ -36,7 +39,7 @@ class WebKitProxyAdmin(admin.ModelAdmin):
     list_display = ('display_name', 'port', 'installed_by_brew', 'executable_path', 'node_path')
 
 
-class ServerAdmin(ImportExportMixin,admin.ModelAdmin):
+class ServerAdmin(ImportExportMixin, admin.ModelAdmin):
     resource_class = ServerResource
     fieldsets = [
         ('Appium Config', {'fields': ['appium_executable']}),
