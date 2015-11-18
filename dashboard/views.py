@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.shortcuts import redirect
-from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver, adb_get_name, start_webkit_proxy
+from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver, adb_get_name, \
+    start_webkit_proxy, kill_webkit_proxy
 from ASM.monitor.stats import percore_cpu
 import time
 
@@ -28,6 +29,7 @@ def stop_server(request, server_id):
     server = get_object_or_404(Server, pk=server_id)
     server.server_status = server.isActive()
     try:
+        kill_webkit_proxy(server.webkit_executable.port)
         stop_appium_server(server.port_number)
         time.sleep(3)
         pass

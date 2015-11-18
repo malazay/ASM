@@ -215,3 +215,7 @@ def check_webkit_status(port):
     status = get_process_pid_by_port('ios_webkit_debug', port) is not None
     print ("iOS WebKit Debug Proxy: " + str(status))
     return status
+
+def kill_webkit_proxy(port):
+    print ("Stopping iOS WebKit Debug Proxy on port: " + port)
+    kill_process_on_port('ios_webkit_debug', port)
