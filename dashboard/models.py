@@ -42,7 +42,7 @@ class Appium_Executable(models.Model):
 class iOS_WebKit_Debug_Proxy(models.Model):
     display_name = models.CharField(max_length=50, default="iOS WebKit Debug Proxy Name")
     port = models.CharField(max_length=5, default="27753")
-    installed_by_npm = models.BooleanField(default=True)
+    installed_by_brew = models.BooleanField(default=True)
     executable_path = models.CharField(max_length=500, default="appium")
     node_path = models.CharField(max_length=500, blank=True, null=True)
     creation_date = models.DateTimeField('date created', default=datetime.now)
@@ -58,15 +58,18 @@ class iOS_WebKit_Debug_Proxy(models.Model):
         return len(os.popen(self.node_path + " -v").read()) > 0
 
     def clean(self):
-        if self.installed_by_npm is False:
+        if self.installed_by_brew is False:
             if os.path.isfile(self.executable_path) is False:
                 raise ValidationError('iOS WebKit Debug Proxy is not present in the path: %s' % self.executable_path)
             if os.path.isfile(self.node_path) is False and self.is_node_installed() is False:
                 raise ValidationError('Node is not present in the specified path, is not installed, '
                                       'or is not specified in the environment variables : %s' % self.node_path)
         else:
-            if self.executable_path not in os.popen('npm view "' + self.executable_path + '" name').read():
-                raise ValidationError(self.executable_path + 'is not present as an NPM module')
+            if 'command not found' in os.popen('brew'):
+                raise ValidationError('Brew is not installed. Go to http://brew.sh/')
+            if self.executable_path not in os.popen('brew list').read():
+                raise ValidationError(self.executable_path + 'is not present as an Brew module. '
+                                                             'Check https://github.com/google/ios-webkit-debug-proxy')
 
 
 class Server(models.Model):

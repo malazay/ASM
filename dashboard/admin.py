@@ -28,12 +28,12 @@ class WebKitProxyAdmin(admin.ModelAdmin):
     fieldsets = [
         ('iOS WebKit Debug Proxy Name', {'fields': ['display_name']}),
         ('Port', {'fields': ['port']}),
-        ('Installed by NPM?', {'fields': ['installed_by_npm']}),
+        ('Installed by Brew?', {'fields': ['installed_by_brew']}),
         ('iOS WebKit Proxy Executable Path', {'fields': ['executable_path']}),
         ('Node Path', {'fields': ['node_path']}),
         ('Creation Date', {'fields': ['creation_date'], 'classes': ['collapse']}),
         ]
-    list_display = ('display_name', 'installed_by_npm', 'executable_path', 'node_path')
+    list_display = ('display_name', 'port', 'installed_by_brew', 'executable_path', 'node_path')
 
 
 class ServerAdmin(ImportExportMixin,admin.ModelAdmin):

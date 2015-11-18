@@ -29,7 +29,7 @@ def stop_server(request, server_id):
     server.server_status = server.isActive()
     try:
         stop_appium_server(server.port_number)
-        time.sleep(2)
+        time.sleep(3)
         pass
     except Exception as e:
         print "Error: " + e
@@ -54,7 +54,7 @@ def run_server(request, server_id):
     start_appium_server(appium_config.node_path, appium_config.executable_path, server.ip_address, server.port_number, server.chromedriver_port, server.bootstrap_port,
                         server.selendroid_port, reset, server.session_override, params, server_id+".txt")
     counter = 0
-    while server.isActive() is not True and counter < 10:
+    while server.isActive() is not True and counter < 60:
         time.sleep(1)
         counter += 1
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
