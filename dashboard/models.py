@@ -67,7 +67,8 @@ class iOS_WebKit_Debug_Proxy(models.Model):
         else:
             if 'command not found' in os.popen('brew'):
                 raise ValidationError('Brew is not installed. Go to http://brew.sh/')
-            if self.executable_path not in os.popen('brew list').read():
+            if self.executable_path not in os.popen('command -v ' + self.executable_path).read() \
+                    and 'ios-webkit-debug-proxy' not in os.popen('brew list').read():
                 raise ValidationError(self.executable_path + 'is not present as an Brew module. '
                                                              'Check https://github.com/google/ios-webkit-debug-proxy')
 
