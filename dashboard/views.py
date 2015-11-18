@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.shortcuts import redirect
-from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver, adb_get_name
+from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver, adb_get_name, start_webkit_proxy
 from ASM.monitor.stats import percore_cpu
 import time
 
@@ -51,8 +51,16 @@ def run_server(request, server_id):
         reset = "full"
     if server.udid is not None and type(server.udid) is not 'NoneType' and len(server.udid) > 0:
         params += " -U " + server.udid
-    start_appium_server(appium_config.node_path, appium_config.executable_path, server.ip_address, server.port_number, server.chromedriver_port, server.bootstrap_port,
-                        server.selendroid_port, reset, server.session_override, params, server_id+".txt")
+    start_appium_server(appium_config.node_path, appium_config.executable_path, server.ip_address, server.port_number,
+                        server.chromedriver_port, server.bootstrap_port, server.selendroid_port, reset,
+                        server.session_override, params, server_id+".txt")
+    webkit_counter = 0
+    if server.is_iOS:
+        while not server.webkit_proxy_open() and webkit_counter < 20:
+            start_webkit_proxy(server.webkit_executable.node_path, server.webkit_executable.executable_path,
+                               server.webkit_executable.port, server.udid, server_id + "webkit.txt", "")
+            time.sleep(1)
+            webkit_counter += 1
     counter = 0
     while server.isActive() is not True and counter < 60:
         time.sleep(1)

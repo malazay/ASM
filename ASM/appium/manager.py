@@ -107,7 +107,7 @@ def get_process_pid_by_port(process_name, port):
             p = psutil.Process(int(item))
             connections = p.connections()
             if port in str(connections):
-                print 'Process Node with port ' + port + ' PID is: ' + str(item)
+                print 'Process ' + process_name + ' with port ' + port + ' PID is: ' + str(item)
                 process_pid = item
                 break
         except Exception as e:
@@ -210,3 +210,8 @@ def start_webkit_proxy(node_path, webkit_path, port, udid, params, logfile):
     run_command_and_log(command, logfile)
 
 
+def check_webkit_status(port):
+    print("Checking status of iOS WebKit Debug Proxy: " + port)
+    status = get_process_pid_by_port('ios_webkit_debug', port) is not None
+    print ("iOS WebKit Debug Proxy: " + str(status))
+    return status

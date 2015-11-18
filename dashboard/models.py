@@ -117,6 +117,9 @@ class Server(models.Model):
     def chromedriver_open(self):
         return manager.is_chromedriver_running(self.chromedriver_port)
 
+    def webkit_proxy_open(self):
+        return manager.check_webkit_status(self.webkit_executable.port)
+
 
 
 
