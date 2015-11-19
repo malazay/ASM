@@ -45,6 +45,41 @@ def log_viewer(request, server_id):
     return render(request, 'dashboard/log_viewer.html', {'server': server})
 
 
+def webkit_log_viewer(request, server_id):
+    server = get_object_or_404(Server, pk=server_id)
+    return render(request, 'dashboard/webkit_log_viewer.html', {'server': server})
+
+
+def stop_webkit(request, server_id):
+    server = get_object_or_404(Server, pk=server_id)
+    server.server_status = server.isActive()
+    try:
+        if server.is_iOS:
+            kill_webkit_proxy(server.webkit_executable.port)
+        time.sleep(3)
+        pass
+    except Exception as e:
+        print "Error: " + str(e)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def start_webkit(request, server_id):
+    server = get_object_or_404(Server, pk=server_id)
+    params = ""
+    if server.udid is not None and type(server.udid) is not 'NoneType' and len(server.udid) > 0:
+        params += " -U " + server.udid
+    if server.is_iOS and not server.webkit_proxy_open():
+        webkit_counter = 0
+        start_webkit_proxy(server.webkit_executable.node_path, server.webkit_executable.executable_path,
+                           server.webkit_executable.port, server.udid, "", server_id + "webkit.txt")
+        while not server.webkit_proxy_open() and webkit_counter < 10:
+            time.sleep(1)
+            webkit_counter += 1
+        if not server.webkit_proxy_open():
+            print "Webkit Server can't be opened, be sure you have an iOS device/simulator opened"
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
 def run_server(request, server_id):
     server = get_object_or_404(Server, pk=server_id)
     appium_config = get_object_or_404(Appium_Executable, pk=server.appium_executable._get_pk_val)

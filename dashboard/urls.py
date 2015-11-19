@@ -8,8 +8,11 @@ urlpatterns = [
     # ex: /dashboard/5/
     url(r'^(?P<server_id>[0-9]+)/$', views.detail, name='detail'),
     url(r'^(?P<server_id>[0-9]+)/stop/$', views.stop_server, name='stop'),
+    url(r'^(?P<server_id>[0-9]+)/stop_webkit/$', views.stop_webkit, name='stop_webkit'),
     url(r'^(?P<server_id>[0-9]+)/run/$', views.run_server, name='run'),
+    url(r'^(?P<server_id>[0-9]+)/run_webkit/$', views.start_webkit, name='run_webkit'),
     url(r'^(?P<server_id>[0-9]+)/logs/$', views.log_viewer, name='logs'),
+    url(r'^(?P<server_id>[0-9]+)/webkit_logs/$', views.webkit_log_viewer, name='webkit_logs'),
     url(r'^(?P<server_id>[0-9]+)/stop_chromedriver/$', views.stop_chromedriver, name='stop_chromedriver'),
     url(r'^monitor/', views.monitor, name='monitor'),
     url(r'^monitor_data/', views.monitor_data, name='monitor_data'),

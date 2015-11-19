@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% include "dashboard/base_generic.html" %}
+{% load static %}
+<html>
+<head>
+<script>
+log_viewer({{ server.id  }}+"webkit");
+</script>
+</head>
+<body>
+<h1>{{ server.server_name }}</h1>
+<div id="log"></div>
+</body>
+</html>
