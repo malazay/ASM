@@ -111,16 +111,21 @@ def get_process_pid_by_port(process_name, port):
                 process_pid = item
                 break
         except Exception as e:
-            print "No process with name: '" + process_name + "' and port: '" + port + "' where found" + e
+            print "No process with name: '" + str(process_name) + "' and port: '" + str(port) + "' was found"
     return process_pid
 
 
 def kill_process_on_port(process_name, port):
+    tries = 0
     pid = get_process_pid_by_port(process_name, port)
-    print "Stopping process: '" + process_name + "' on port: " + str(port)
-    p = psutil.Process(int(pid))
-    p.terminate()
-    print "process: '" + process_name + "' on port: " + str(port) + " was killed"
+    if pid is not None:
+        print "Stopping process: '" + process_name + "' on port: " + str(port)
+        while get_process_pid_by_port(process_name, port) is not None and tries < 5:
+            pid = get_process_pid_by_port(process_name, port)
+            p = psutil.Process(int(pid))
+            p.terminate()
+            tries += 1
+        print "process: '" + process_name + "' on port: " + str(port) + " was killed"
 
 
 def get_node_pid_by_port(port):
@@ -204,7 +209,7 @@ def start_webkit_proxy(node_path, webkit_path, port, udid, params, logfile):
     if node_path is None:
         node_path = ""
     else:
-        node_path += " "
+        node_path += ""
     command = node_path + webkit_path + " -c " + udid + ":" + port + " -d " + params
     print command
     run_command_and_log(command, logfile)
@@ -216,6 +221,15 @@ def check_webkit_status(port):
     print ("iOS WebKit Debug Proxy: " + str(status))
     return status
 
+
 def kill_webkit_proxy(port):
-    print ("Stopping iOS WebKit Debug Proxy on port: " + port)
-    kill_process_on_port('ios_webkit_debug', port)
+    try:
+        print ("Stopping iOS WebKit Debug Proxy on port: " + port)
+        kill_process_on_port('ios_webkit_debug', port)
+    except Exception as e:
+        print ("WebKit proxy was not running")
+    if check_webkit_status(port) and 'Windows' not in get_os():
+        try:
+            os.system("kill -9 " + port)
+        except Exception as e:
+            print ("WebKit proxy could not be stopped.")
