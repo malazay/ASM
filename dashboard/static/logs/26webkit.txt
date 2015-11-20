@@ -1,0 +1,11 @@
+Starting command: ios_webkit_debug_proxy -c 8BAC57CE-4B2B-44C0-9E73-46376DDFF5E5:27753 -d 
+Unknown file: 8BAC57CE-4B2B-44C0-9E73-46376DDFF5E5:27753
+Unknown file: 8BAC57CE-4B2B-44C0-9E73-46376DDFF5E5:27753
+Unknown file: 8BAC57CE-4B2B-44C0-9E73-46376DDFF5E5:27753
+Unknown file: 8BAC57CE-4B2B-44C0-9E73-46376DDFF5E5:27753
+ss.add_fd(3)
+ss.recv fd=3 len=294
+ss.recv fd=3 len=684
+ss.recv fd=3 len=298
+ss.recv fd=3 len=684
+ss.remove_fd(3)

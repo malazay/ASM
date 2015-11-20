@@ -1,0 +1,83 @@
+2015-11-20 10:03:33:751 - info: Welcome to Appium v1.4.14 (REV f971479e06f61d590b36e372f47da0fa0ba1110c)
+2015-11-20 10:03:33:753 - info: Appium REST http interface listener started on 0.0.0.0:9012
+2015-11-20 10:03:33:757 - info: [debug] Non-default server args: {"udid":"a6deb19e55a05baafed39f5b04b10749ce52edf7","port":9012,"bootstrapPort":9015,"sessionOverride":true,"fullReset":true,"log":"/Users/international/git/ASM/dashboard/static/logs/25.txt","localTimezone":true,"logNoColors":true,"selendroidPort":9020,"chromeDriverPort":9013}
+2015-11-20 10:03:33:757 - info: Console LogLevel: debug
+2015-11-20 10:03:33:757 - info: File LogLevel: debug
+2015-11-20 10:03:34:669 - info: --> GET /wd/hub/status/ {}
+2015-11-20 10:03:34:671 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"}}}
+2015-11-20 10:03:34:678 - info: <-- GET /wd/hub/status/ 200 9.428 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"}}}
+2015-11-20 10:03:34:720 - info: --> GET /wd/hub/status/ {}
+2015-11-20 10:03:34:721 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"}}}
+2015-11-20 10:03:34:724 - info: <-- GET /wd/hub/status/ 200 3.498 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"}}}
+2015-11-20 10:03:55:251 - info: --> POST /wd/hub/session {"desiredCapabilities":{"platform":"MAC","platformVersion":"8.2","app":"Safari","platformName":"iOS","deviceName":"a6deb19e55a05baafed39f5b04b10749ce52edf7","browserName":"Safari","version":""}}
+2015-11-20 10:03:55:252 - info: Client User-Agent string: Apache-HttpClient/4.3.6 (java 1.5)
+2015-11-20 10:03:55:254 - info: [debug] The following desired capabilities were provided, but not recognized by appium. They will be passed on to any other services running on this server. : platform, version
+2015-11-20 10:03:55:256 - info: [debug] Configuring Safari session
+2015-11-20 10:03:55:257 - info: [debug] Using local .zip from desired caps: /Users/international/git/appium/build/SafariLauncher/SafariLauncher.zip
+2015-11-20 10:03:55:258 - info: [debug] Copying local zip to tmp dir
+2015-11-20 10:03:55:281 - info: [debug] /Users/international/git/appium/build/SafariLauncher/SafariLauncher.zip copied to /var/folders/v9/9ttv08kj3sq7vvpzmnw1_xwr0000gp/T/1151020-51130-v7bfaz/appium-app.zip
+2015-11-20 10:03:55:346 - info: [debug] Unzipping /var/folders/v9/9ttv08kj3sq7vvpzmnw1_xwr0000gp/T/1151020-51130-v7bfaz/appium-app.zip
+2015-11-20 10:03:55:347 - info: [debug] Testing zip archive: /var/folders/v9/9ttv08kj3sq7vvpzmnw1_xwr0000gp/T/1151020-51130-v7bfaz/appium-app.zip
+2015-11-20 10:03:55:371 - info: [debug] Zip archive tested clean
+2015-11-20 10:03:55:384 - info: [debug] Unzip successful
+2015-11-20 10:03:55:385 - info: [debug] Using locally extracted app: /var/folders/v9/9ttv08kj3sq7vvpzmnw1_xwr0000gp/T/1151020-51130-v7bfaz/node_modules/safari-launcher/build/Release-iphoneos/SafariLauncher.app
+2015-11-20 10:03:55:387 - info: [debug] Creating new appium session 82d58d82-9476-432b-a7a0-5d9faae50ea3
+2015-11-20 10:03:55:389 - info: [debug] Removing any remaining instruments sockets
+2015-11-20 10:03:55:431 - info: [debug] Cleaned up instruments socket /tmp/instruments_sock
+2015-11-20 10:03:55:431 - info: [debug] Auto-detecting iOS udid...
+2015-11-20 10:03:55:432 - info: [debug] Not auto-detecting udid, running on sim
+2015-11-20 10:03:55:434 - info: [debug] Could not parse plist file (as binary) at /var/folders/v9/9ttv08kj3sq7vvpzmnw1_xwr0000gp/T/1151020-51130-v7bfaz/node_modules/safari-launcher/build/Release-iphoneos/SafariLauncher.app/en.lproj/Localizable.strings
+2015-11-20 10:03:55:435 - info: Will try to parse the plist file as XML
+2015-11-20 10:03:55:435 - info: [debug] Could not parse plist file (as XML) at /var/folders/v9/9ttv08kj3sq7vvpzmnw1_xwr0000gp/T/1151020-51130-v7bfaz/node_modules/safari-launcher/build/Release-iphoneos/SafariLauncher.app/en.lproj/Localizable.strings
+2015-11-20 10:03:55:435 - warn: Could not parse app Localizable.strings assuming it doesn't exist
+2015-11-20 10:03:55:436 - info: [debug] Getting bundle ID from app
+2015-11-20 10:03:55:457 - info: [debug] Parsed app Info.plist (as binary)
+2015-11-20 10:03:55:457 - info: [debug] Creating instruments
+2015-11-20 10:03:55:459 - info: [debug] Preparing uiauto bootstrap
+2015-11-20 10:03:55:459 - info: [debug] Dynamic bootstrap dir: /Users/international/Library/Application Support/appium/bootstrap
+2015-11-20 10:03:55:459 - info: [debug] Dynamic env: {"nodePath":"/usr/local/Cellar/node/5.0.0/bin/node","commandProxyClientPath":"/Users/international/git/appium/node_modules/appium-uiauto/bin/command-proxy-client.js","instrumentsSock":"/tmp/instruments_sock","interKeyDelay":null,"justLoopInfinitely":false,"autoAcceptAlerts":false,"autoDismissAlerts":false,"sendKeyStrategy":"grouped"}
+2015-11-20 10:03:55:587 - info: [debug] Dynamic bootstrap code: // This file is automatically generated. Do not manually modify!...
+2015-11-20 10:03:55:587 - info: [debug] Dynamic bootstrap path: /Users/international/Library/Application Support/appium/bootstrap/bootstrap-2b1fd21f449e9886.js
+2015-11-20 10:03:55:606 - info: [debug] Reusing dynamic bootstrap: /Users/international/Library/Application Support/appium/bootstrap/bootstrap-2b1fd21f449e9886.js
+2015-11-20 10:03:55:610 - info: [debug] Attempting iOS device log capture via libimobiledevice idevicesyslog
+2015-11-20 10:03:55:708 - info: [debug] Creating iDevice object with udid a6deb19e55a05baafed39f5b04b10749ce52edf7
+2015-11-20 10:03:57:317 - info: [debug] Starting command proxy.
+2015-11-20 10:03:57:320 - info: [debug] Instruments socket server started at /tmp/instruments_sock
+2015-11-20 10:03:57:320 - info: [debug] Starting instruments
+2015-11-20 10:03:57:482 - info: [debug] Instruments is at: /Applications/Xcode.app/Contents/Developer/usr/bin/instruments
+2015-11-20 10:03:57:483 - info: Launching instruments
+2015-11-20 10:03:57:484 - info: [debug] Attempting to run app on real device with UDID a6deb19e55a05baafed39f5b04b10749ce52edf7
+2015-11-20 10:03:57:485 - info: On xcode 7.0, instruments-without-delay does not work, skippinginstruments-without-delay
+2015-11-20 10:03:57:486 - info: [debug] Spawning instruments with command: /Applications/Xcode.app/Contents/Developer/usr/bin/instruments -t /Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/PlugIns/AutomationInstrument.xrplugin/Contents/Resources/Automation.tracetemplate -D /tmp/appium-instruments/instrumentscli0.trace -w a6deb19e55a05baafed39f5b04b10749ce52edf7 com.bytearc.SafariLauncher -e UIASCRIPT "/Users/international/Library/Application Support/appium/bootstrap/bootstrap-2b1fd21f449e9886.js" -e UIARESULTSPATH /tmp/appium-instruments
+2015-11-20 10:03:57:486 - info: [debug] And launch timeouts (in ms): {"global":90000}
+2015-11-20 10:04:06:275 - info: [debug] [INST STDERR] 2015-11-20 10:04:06.274 instruments[51141:277105] Failed to start Instruments daemon on 'Richard's iPhone (8.2)' (The service is invalid.)
+2015-11-20 10:04:06:320 - info: [debug] [INST STDERR] Instruments Usage Error : Specified target process is invalid: com.bytearc.SafariLauncher
+instruments, version 7.1.1 (59040)
+usage: instruments [-t template] [-D document] [-l timeLimit] [-i #] [-w device] [[-p pid] | [application [-e variable value] [argument ...]]]
+2015-11-20 10:04:06:376 - info: [debug] [INSTSERVER] Instruments exited with code 255
+2015-11-20 10:04:06:376 - info: [debug] Cleaning up after instruments exit
+2015-11-20 10:04:06:377 - info: [debug] Not worrying about instruments exit since we're using SafariLauncher
+2015-11-20 10:05:27:508 - warn: Instruments socket client never checked in; timing out (global)
+2015-11-20 10:05:27:509 - info: [debug] Killall instruments
+2015-11-20 10:05:38:556 - info: <-- POST /wd/hub/session - - ms - - 
+2015-11-20 10:45:17:009 - info: --> GET /wd/hub/status/ {}
+2015-11-20 10:45:17:010 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:45:17:013 - info: <-- GET /wd/hub/status/ 200 3.723 ms - 179 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:45:18:303 - info: --> GET /wd/hub/status/ {}
+2015-11-20 10:45:18:303 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:45:18:305 - info: <-- GET /wd/hub/status/ 200 1.829 ms - 179 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:45:18:357 - info: --> GET /wd/hub/status/ {}
+2015-11-20 10:45:18:358 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:45:18:358 - info: <-- GET /wd/hub/status/ 200 1.269 ms - 179 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:45:22:184 - info: --> GET /wd/hub/status/ {}
+2015-11-20 10:45:22:185 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:45:22:186 - info: <-- GET /wd/hub/status/ 200 2.019 ms - 179 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:45:22:206 - info: --> GET /wd/hub/status/ {}
+2015-11-20 10:45:22:207 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:45:22:208 - info: <-- GET /wd/hub/status/ 200 2.208 ms - 179 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:50:57:264 - info: --> GET /wd/hub/status/ {}
+2015-11-20 10:50:57:265 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:50:57:267 - info: <-- GET /wd/hub/status/ 200 1.991 ms - 179 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:51:11:869 - info: --> GET /wd/hub/status/ {}
+2015-11-20 10:51:11:869 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}
+2015-11-20 10:51:11:870 - info: <-- GET /wd/hub/status/ 200 1.571 ms - 179 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"},"isShuttingDown":false},"sessionId":"82d58d82-9476-432b-a7a0-5d9faae50ea3"}

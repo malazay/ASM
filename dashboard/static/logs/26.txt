@@ -1,0 +1,11 @@
+2015-11-19 15:18:11:431 - info: Welcome to Appium v1.4.14 (REV f971479e06f61d590b36e372f47da0fa0ba1110c)
+2015-11-19 15:18:11:433 - info: Appium REST http interface listener started on 127.0.0.1:5569
+2015-11-19 15:18:11:436 - info: [debug] Non-default server args: {"address":"127.0.0.1","port":5569,"bootstrapPort":5571,"sessionOverride":true,"fullReset":true,"log":"/Users/international/git/ASM/dashboard/static/logs/26.txt","localTimezone":true,"logNoColors":true,"selendroidPort":5582,"chromeDriverPort":5570}
+2015-11-19 15:18:11:437 - info: Console LogLevel: debug
+2015-11-19 15:18:11:437 - info: File LogLevel: debug
+2015-11-19 15:18:12:242 - info: --> GET /wd/hub/status/ {}
+2015-11-19 15:18:12:244 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"}}}
+2015-11-19 15:18:12:251 - info: <-- GET /wd/hub/status/ 200 9.514 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"}}}
+2015-11-19 15:18:12:305 - info: --> GET /wd/hub/status/ {}
+2015-11-19 15:18:12:306 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"}}}
+2015-11-19 15:18:12:307 - info: <-- GET /wd/hub/status/ 200 2.589 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"f971479e06f61d590b36e372f47da0fa0ba1110c"}}}
