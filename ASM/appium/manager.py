@@ -70,6 +70,21 @@ def set_log_folder():
 
 
 def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile):
+    cd_argument = " --chromedriver-port "
+    bs_argument = " --bootstrap-port "
+    sp_argument = " --selendroid-port "
+    if chromedriver is None or 'NoneType' or len(chromedriver) < 4:
+        cd_argument = ""
+    else:
+        cd_argument += chromedriver
+    if bootstrap is None or 'NoneType' or len(bootstrap) < 4:
+        bs_argument = ""
+    else:
+        bs_argument += bootstrap
+    if sp_argument is None or 'NoneType' or len(selendroid) < 4:
+        sp_argument = ""
+    else:
+        sp_argument += selendroid
     if params is None:
         params = ""
     if reset is "full":
@@ -80,8 +95,8 @@ def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap,
         params += ""
     if override is True:
         params += " --session-override"
-    return set_appium_executable(node_path, appium_path) + " --address " + ip + " -p " + port + " --chromedriver-port " + chromedriver + " --bootstrap-port " + \
-           bootstrap + " --selendroid-port " + selendroid + " " + params + " --log " + set_log_folder() + logfile + " --log-no-colors"
+    return set_appium_executable(node_path, appium_path) + " --address " + ip + " -p " + port + cd_argument + \
+           bs_argument + sp_argument + " " + params + " --log " + set_log_folder() + logfile + " --log-no-colors"
 
 
 @postpone
@@ -225,11 +240,12 @@ def check_webkit_status(port):
 def kill_webkit_proxy(port):
     try:
         print ("Stopping iOS WebKit Debug Proxy on port: " + port)
-        kill_process_on_port('ios_webkit_debug', port)
+        kill_process_on_port('ios_webkit_debug_proxy', port)
     except Exception as e:
         print ("WebKit proxy was not running")
     if check_webkit_status(port) and 'Windows' not in get_os():
         try:
+            os.system("kilall ios_webkit_debug_proxy")
             os.system("kill -9 " + port)
         except Exception as e:
             print ("WebKit proxy could not be stopped.")

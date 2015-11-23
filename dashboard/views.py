@@ -73,7 +73,8 @@ def start_webkit(request, server_id):
         start_webkit_proxy(server.webkit_executable.node_path, server.webkit_executable.executable_path,
                            server.webkit_executable.port, server.udid, "", server_id + "webkit.txt")
         while not server.webkit_proxy_open() and webkit_counter < 10:
-            time.sleep(1)
+            stop_webkit(server.webkit_executable.port)
+            time.sleep(3)
             webkit_counter += 1
         if not server.webkit_proxy_open():
             print "Webkit Server can't be opened, be sure you have an iOS device/simulator opened"
@@ -90,7 +91,8 @@ def run_server(request, server_id):
         reset = "full"
     if server.udid is not None and type(server.udid) is not 'NoneType' and len(server.udid) > 0:
         params += " -U " + server.udid
-
+    if server.is_iOS:
+        params += " --webkit-debug-proxy-port " + server.webkit_executable.port
     if server.is_iOS and not server.webkit_proxy_open():
         webkit_counter = 0
         start_webkit_proxy(server.webkit_executable.node_path, server.webkit_executable.executable_path,
