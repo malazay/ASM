@@ -48,7 +48,7 @@ def run_command_and_log(command, logfile):
     with open(set_log_folder() + logfile, 'w') as out:
         out.write('Starting command: ' + command + '\n')
         out.flush()
-        print subprocess.Popen(command, shell=True, universal_newlines=True, stderr=subprocess.STDOUT, stdout=out)
+        print subprocess.Popen(command, shell=True, universal_newlines=True, stderr=subprocess.PIPE, stdout=out)
 
 
 def set_appium_executable(node_path, appium_path):
@@ -109,7 +109,7 @@ def start_appium_server(node_path, appium_path, ip, port, chromedriver, bootstra
 def get_list_of_processes_pid(process_name):
     list_of_pids = []
     for process in psutil.process_iter():
-        if process_name in str(process):
+        if process_name in str(process.name()):
             list_of_pids.append(process.pid)
     return list_of_pids
 
@@ -232,8 +232,10 @@ def start_webkit_proxy(node_path, webkit_path, port, udid, params, logfile):
 
 def check_webkit_status(port):
     print("Checking status of iOS WebKit Debug Proxy: " + port)
-    status = get_process_pid_by_port('ios_webkit_debug', port) is not None
-    print ("iOS WebKit Debug Proxy: " + str(status))
+    status = get_process_pid_by_port('ios_webki', port) is not None
+    if status is False:
+        status = "ios_webki" in os.popen("lsof -i :"+port).read()
+        print ("iOS WebKit Debug Proxy: " + str(status))
     return status
 
 

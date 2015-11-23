@@ -103,8 +103,12 @@ class Server(models.Model):
 
     def isActive(self):
         try:
-            return manager.check_server_status(self.ip_address, self.port_number)
+            status = manager.check_server_status(self.ip_address, self.port_number)
+            if status is False and manager.get_os() is not "Win":
+                status = "node" in os.popen("lsof -i :"+ self.port_number).read()
+            return status
         except Exception as e:
+            print "Is Active - Exception thrown: " + str(e)
             return False
     isActive.admin_order_field = 'server_status'
     isActive.boolean = True

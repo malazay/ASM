@@ -73,7 +73,7 @@ def start_webkit(request, server_id):
         start_webkit_proxy(server.webkit_executable.node_path, server.webkit_executable.executable_path,
                            server.webkit_executable.port, server.udid, "", server_id + "webkit.txt")
         while not server.webkit_proxy_open() and webkit_counter < 10:
-            stop_webkit(server.webkit_executable.port)
+            kill_webkit_proxy(server.webkit_executable.port)
             time.sleep(3)
             webkit_counter += 1
         if not server.webkit_proxy_open():
