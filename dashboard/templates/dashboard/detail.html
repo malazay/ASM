@@ -42,21 +42,21 @@
                 {% endif %}
             </ul>
             {% if server.isActive %}
-                <h4><a class="pure-button" href="{% url 'stop' server.id %}">Stop</a></h4>
+                <h4><a id="stopserver" class="pure-button" href="{% url 'stop' server.id %} " onclick="animateServer('stopserver')">Stop</a></h4>
                 <h4><a class="pure-button" href="{% url 'logs' server.id %}">Logs</a></h4>
             {% else %}
-                <h4><a class="pure-button" href="{% url 'run' server.id %}">Start</a></h4>
+                <h4><a id="startserver" class="pure-button" href="{% url 'run' server.id %}" onclick="animateServer('startserver')">Start</a></h4>
             {% endif %}
               {% if server.chromedriver_open %}
-                <h4><a class="pure-button" href="{% url 'stop_chromedriver' server.id %}">Stop Chromedriver</a></h4>
+                <h4><a id="stopcd" class="pure-button" href="{% url 'stop_chromedriver' server.id %}">Stop Chromedriver</a></h4>
             {% endif %}
           {% if server.is_iOS %}
           <h1>iOS WebKit Debug Proxy</h1>
           {% if not server.webkit_proxy_open %}
-                <h4><a class="pure-button" href="{% url 'run_webkit' server.id %}">Start</a></h4>
+                <h4><a id="startwk" class="pure-button" href="{% url 'run_webkit' server.id %}" onclick="animateServer('startwk')">Start</a></h4>
           {% endif %}
           {% if server.webkit_proxy_open %}
-                <h4><a class="pure-button" href="{% url 'stop_webkit' server.id %}">Stop</a></h4>
+                <h4><a id="stopwk" class="pure-button" href="{% url 'stop_webkit' server.id %}" onclick="animateServer('stopwk')">Stop</a></h4>
                 <h4><a class="pure-button" href="{% url 'webkit_logs' server.id %}">Logs</a></h4>
           {% endif %}
           {% endif %}

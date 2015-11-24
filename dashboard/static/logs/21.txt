@@ -1,17 +1,17 @@
-2015-11-23 14:13:29:466 - info: Welcome to Appium v1.4.14 (REV c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6)
-2015-11-23 14:13:29:467 - info: Appium REST http interface listener started on 0.0.0.0:4833
-2015-11-23 14:13:29:470 - info: [debug] Non-default server args: {"udid":"LGD85528c82228","port":4833,"sessionOverride":true,"fullReset":true,"log":"C:\\ASM\\dashboard\\static\\logs\\21.txt","localTimezone":true,"logNoColors":true}
-2015-11-23 14:13:29:470 - info: Console LogLevel: debug
-2015-11-23 14:13:29:470 - info: File LogLevel: debug
-2015-11-23 14:13:29:780 - info: --> GET /wd/hub/status/ {}
-2015-11-23 14:13:29:781 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
-2015-11-23 14:13:29:787 - info: <-- GET /wd/hub/status/ 200 8.688 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
-2015-11-23 14:13:29:807 - info: --> GET /wd/hub/status/ {}
-2015-11-23 14:13:29:808 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
-2015-11-23 14:13:29:810 - info: <-- GET /wd/hub/status/ 200 3.245 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
-2015-11-23 14:13:36:792 - info: --> GET /wd/hub/status/ {}
-2015-11-23 14:13:36:793 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
-2015-11-23 14:13:36:795 - info: <-- GET /wd/hub/status/ 200 2.869 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
-2015-11-23 14:13:36:816 - info: --> GET /wd/hub/status/ {}
-2015-11-23 14:13:36:816 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
-2015-11-23 14:13:36:818 - info: <-- GET /wd/hub/status/ 200 1.845 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-24 11:49:18:573 - info: Welcome to Appium v1.4.14 (REV c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6)
+2015-11-24 11:49:18:575 - info: Appium REST http interface listener started on 0.0.0.0:4833
+2015-11-24 11:49:18:577 - info: [debug] Non-default server args: {"udid":"LGD85528c82228","port":4833,"sessionOverride":true,"fullReset":true,"log":"C:\\ASM\\dashboard\\static\\logs\\21.txt","localTimezone":true,"logNoColors":true}
+2015-11-24 11:49:18:577 - info: Console LogLevel: debug
+2015-11-24 11:49:18:578 - info: File LogLevel: debug
+2015-11-24 11:49:19:254 - info: --> GET /wd/hub/status/ {}
+2015-11-24 11:49:19:255 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-24 11:49:19:262 - info: <-- GET /wd/hub/status/ 200 9.146 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-24 11:49:19:586 - info: --> GET /wd/hub/status/ {}
+2015-11-24 11:49:19:587 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-24 11:49:19:589 - info: <-- GET /wd/hub/status/ 200 2.736 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-24 11:49:19:607 - info: --> GET /wd/hub/status/ {}
+2015-11-24 11:49:19:607 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-24 11:49:19:608 - info: <-- GET /wd/hub/status/ 200 1.462 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-24 11:49:22:635 - info: --> GET /wd/hub/status/ {}
+2015-11-24 11:49:22:636 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-11-24 11:49:22:639 - info: <-- GET /wd/hub/status/ 200 3.062 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
