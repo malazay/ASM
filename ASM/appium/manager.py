@@ -69,7 +69,8 @@ def set_log_folder():
     return log_folder
 
 
-def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile):
+def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params,
+                      logfile):
     cd_argument = " --chromedriver-port "
     bs_argument = " --bootstrap-port "
     sp_argument = " --selendroid-port "
@@ -96,12 +97,14 @@ def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap,
     if override is True:
         params += " --session-override"
     return set_appium_executable(node_path, appium_path) + " --address " + ip + " -p " + port + cd_argument + \
-           bs_argument + sp_argument + " " + params + " --log " + set_log_folder() + logfile + " --log-no-colors"
+        bs_argument + sp_argument + " " + params + " --log " + set_log_folder() + logfile + " --log-no-colors"
 
 
 @postpone
-def start_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile):
-    command = set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params, logfile)
+def start_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params,
+                        logfile):
+    command = set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override,
+                                params, logfile)
     print command
     os.system(command)
 

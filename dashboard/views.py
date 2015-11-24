@@ -83,7 +83,6 @@ def start_webkit(request, server_id):
 
 def run_server(request, server_id):
     server = get_object_or_404(Server, pk=server_id)
-    appium_config = get_object_or_404(Appium_Executable, pk=server.appium_executable._get_pk_val)
     server.server_status = server.isActive()
     params = "--local-timezone"
     reset = "no"
@@ -102,9 +101,9 @@ def run_server(request, server_id):
             webkit_counter += 1
         if not server.webkit_proxy_open():
             print "Webkit Server can't be opened, be sure you have an iOS device/simulator opened"
-    start_appium_server(appium_config.node_path, appium_config.executable_path, server.ip_address, server.port_number,
-                        server.chromedriver_port, server.bootstrap_port, server.selendroid_port, reset,
-                        server.session_override, params, server_id+".txt")
+    start_appium_server(server.appium_executable.node_path, server.appium_executable.executable_path, server.ip_address,
+                        server.port_number, server.chromedriver_port, server.bootstrap_port, server.selendroid_port,
+                        reset,server.session_override, params, server_id+".txt")
 
     counter = 0
     while not server.isActive() and counter < 60:
@@ -135,12 +134,14 @@ def ajax(request):
     data = coredata
     return HttpResponse(json.dumps(data), content_type="application/json")
 
+
 def adb_devices_json(request):
     data = []
     for device in adb()[1:]:
         if len(device) > 0:
             data.append(device.split('\t'))
     return HttpResponse(json.dumps(data), content_type="application/json")
+
 
 def adb_devices(request):
     data = []
@@ -150,6 +151,7 @@ def adb_devices(request):
             data.append(device.split('\t'))
     context = {'devices': data, 'device_name': device_name}
     return render(request, 'dashboard/adb.html', context)
+
 
 def adb_reboot(request, device_name):
     reboot(device_name)
