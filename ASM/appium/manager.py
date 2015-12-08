@@ -71,21 +71,15 @@ def set_log_folder():
 
 def set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override, params,
                       logfile):
-    cd_argument = " --chromedriver-port "
-    bs_argument = " --bootstrap-port "
-    sp_argument = " --selendroid-port "
-    if chromedriver is None or 'NoneType' or len(chromedriver) < 4:
-        cd_argument = ""
-    else:
-        cd_argument += chromedriver
-    if bootstrap is None or 'NoneType' or len(bootstrap) < 4:
-        bs_argument = ""
-    else:
-        bs_argument += bootstrap
-    if sp_argument is None or 'NoneType' or len(selendroid) < 4:
-        sp_argument = ""
-    else:
-        sp_argument += selendroid
+    cd_argument = ""
+    bs_argument = ""
+    sp_argument = ""
+    if chromedriver is not None and type(chromedriver) is not 'NoneType' and len(chromedriver) > 0:
+        cd_argument = " --chromedriver-port " + chromedriver
+    if bootstrap is not None and type(bootstrap) is not 'NoneType' and len(bootstrap) > 0:
+        bs_argument = " --bootstrap-port " + bootstrap
+    if selendroid is not None and type(selendroid) is not 'NoneType' and len(selendroid) > 0:
+        sp_argument = " --selendroid-port " + selendroid
     if params is None:
         params = ""
     if reset is "full":
@@ -105,7 +99,6 @@ def start_appium_server(node_path, appium_path, ip, port, chromedriver, bootstra
                         logfile):
     command = set_appium_server(node_path, appium_path, ip, port, chromedriver, bootstrap, selendroid, reset, override,
                                 params, logfile)
-    print command
     os.system(command)
 
 
@@ -250,7 +243,11 @@ def kill_webkit_proxy(port):
         print ("WebKit proxy was not running")
     if check_webkit_status(port) and 'Windows' not in get_os():
         try:
-            os.system("kilall ios_webkit_debug_proxy")
+            os.system("killall ios_webkit_debug_proxy")
             os.system("kill -9 " + port)
         except Exception as e:
             print ("WebKit proxy could not be stopped.")
+
+
+def win_kill_process_by_pid(pid):
+    os.system("taskkill /F /pid " + pid)

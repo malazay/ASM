@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.shortcuts import redirect
 from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver, adb_get_name, \
-    start_webkit_proxy, kill_webkit_proxy
+    start_webkit_proxy, kill_webkit_proxy, win_kill_process_by_pid, get_os
 from ASM.monitor.stats import percore_cpu
 import time
 
@@ -31,12 +31,14 @@ def stop_server(request, server_id):
     try:
         if server.is_iOS:
             kill_webkit_proxy(server.webkit_executable.port)
-
         time.sleep(3)
         pass
     except Exception as e:
         print "Error: " + str(e)
-    stop_appium_server(server.port_number)
+    if get_os() is "Win":
+        win_kill_process_by_pid(server.port_number)
+    else:
+        stop_appium_server(server.port_number)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
