@@ -249,5 +249,6 @@ def kill_webkit_proxy(port):
             print ("WebKit proxy could not be stopped.")
 
 
-def win_kill_process_by_pid(pid):
-    os.system("taskkill /F /pid " + pid)
+def win_kill_process_by_port(port):
+    pid = get_node_pid_by_port(port)
+    os.system("taskkill /F /pid " + str(pid))

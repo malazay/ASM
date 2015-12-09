@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.shortcuts import redirect
 from ASM.appium.manager import start_appium_server, stop_appium_server, adb, reboot, kill_chromedriver, adb_get_name, \
-    start_webkit_proxy, kill_webkit_proxy, win_kill_process_by_pid, get_os
+    start_webkit_proxy, kill_webkit_proxy, win_kill_process_by_port, get_os
 from ASM.monitor.stats import percore_cpu
 import time
 
@@ -36,7 +36,7 @@ def stop_server(request, server_id):
     except Exception as e:
         print "Error: " + str(e)
     if get_os() is "Win":
-        win_kill_process_by_pid(server.port_number)
+        win_kill_process_by_port(server.port_number)
     else:
         stop_appium_server(server.port_number)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -170,6 +170,7 @@ def adb_reboot(request, device_name):
 def stop_chromedriver(request, server_id):
     server = get_object_or_404(Server, pk=server_id)
     try:
+
         kill_chromedriver(server.chromedriver_port)
         time.sleep(2)
         pass

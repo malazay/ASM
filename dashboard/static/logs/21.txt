@@ -1,11 +1,14 @@
-2015-12-08 16:01:52:484 - info: Welcome to Appium v1.4.10 (REV c97e824665ae82df682a0b540b38dfe8c13c8ac7)
-2015-12-08 16:01:52:486 - info: Appium REST http interface listener started on 0.0.0.0:4833
-2015-12-08 16:01:52:488 - info: [debug] Non-default server args: {"udid":"LGD85528c82228","port":4833,"bootstrapPort":6010,"sessionOverride":true,"fullReset":true,"log":"F:\\ASM\\dashboard\\static\\logs\\21.txt","localTimezone":true,"logNoColors":true,"selendroidPort":5924,"chromeDriverPort":5890}
-2015-12-08 16:01:52:489 - info: Console LogLevel: debug
-2015-12-08 16:01:52:489 - info: File LogLevel: debug
-2015-12-08 16:01:52:870 - info: --> GET /wd/hub/status/ {}
-2015-12-08 16:01:52:871 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-12-08 16:01:52:876 - info: <-- GET /wd/hub/status/ 200 6.019 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-12-08 16:01:53:289 - info: --> GET /wd/hub/status/ {}
-2015-12-08 16:01:53:290 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
-2015-12-08 16:01:53:292 - info: <-- GET /wd/hub/status/ 200 2.432 ms - 105 {"status":0,"value":{"build":{"version":"1.4.10","revision":"c97e824665ae82df682a0b540b38dfe8c13c8ac7"}}}
+2015-12-09 11:48:47:591 - info: Welcome to Appium v1.4.14 (REV c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6)
+2015-12-09 11:48:47:593 - info: Appium REST http interface listener started on 0.0.0.0:4833
+2015-12-09 11:48:47:596 - info: [debug] Non-default server args: {"udid":"LGD85528c82228","port":4833,"bootstrapPort":6010,"sessionOverride":true,"fullReset":true,"log":"C:\\ASM\\dashboard\\static\\logs\\21.txt","localTimezone":true,"logNoColors":true,"selendroidPort":5924,"chromeDriverPort":5890}
+2015-12-09 11:48:47:596 - info: Console LogLevel: debug
+2015-12-09 11:48:47:596 - info: File LogLevel: debug
+2015-12-09 11:48:47:787 - info: --> GET /wd/hub/status/ {}
+2015-12-09 11:48:47:789 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-12-09 11:48:47:796 - info: <-- GET /wd/hub/status/ 200 9.103 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-12-09 11:48:47:816 - info: --> GET /wd/hub/status/ {}
+2015-12-09 11:48:47:818 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-12-09 11:48:47:821 - info: <-- GET /wd/hub/status/ 200 4.274 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-12-09 11:48:48:841 - info: --> GET /wd/hub/status/ {}
+2015-12-09 11:48:48:842 - info: [debug] Responding to client with success: {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
+2015-12-09 11:48:48:843 - info: <-- GET /wd/hub/status/ 200 2.232 ms - 105 {"status":0,"value":{"build":{"version":"1.4.14","revision":"c3fe3472417cbc37b54b4f6b1da58c7aa23dbff6"}}}
