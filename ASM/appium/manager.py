@@ -128,8 +128,6 @@ def get_process_pid_by_port(process_name, port):
 
 def kill_process_on_port(process_name, port):
     tries = 0
-    if not "Win" in get_os():
-                os.system("kill -9 " + port)
     pid = get_process_pid_by_port(process_name, port)
     if pid is not None:
         print "Stopping process: '" + process_name + "' on port: " + str(port)
@@ -138,6 +136,8 @@ def kill_process_on_port(process_name, port):
             p = psutil.Process(int(pid))
             p.terminate()
             tries += 1
+            if not "Win" in get_os():
+                os.system("kill -9 " + pid)
         print "process: '" + process_name + "' on port: " + str(port) + " was killed"
 
 
